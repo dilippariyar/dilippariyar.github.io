@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Symmetrical Particle Art</title>
+    <style>
+        /* Styling for a centered canvas with a dark background */
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #000033, #000);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        canvas {
+            border: 1px solid #ffffff20; /* Subtle border */
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        // Get canvas and context
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Variables
+        let width, height;
+        let particles = [];
+        let isDrawing = false;
+        let lastX, lastY;
+        let hue = 0;
+        const symmetry = 8; // Number of symmetrical reflections
+
+        // Resize canvas to 90% of window size
+        function resizeCanvas() {
+            width = window.innerWidth * 0.9;
+            height = window.innerHeight * 0.9;
+            canvas.width = width;
+            canvas.height = height;
+            canvas.style.width = `${width}px`;
+            canvas.style.height = `${height}px`;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Get accurate mouse coordinates relative to canvas
+        function getMousePos(event) {
+            const rect = canvas.getBoundingClientRect();
+            return {
+                x: (event.clientX - rect.left) * (canvas.width / rect.width),
+                y: (event.clientY - rect.top) * (canvas.height / rect.height)
+            };
+        }
+
+        // Mouse events
+        canvas.addEventListener('mousedown', (e) => {
+            isDrawing = true;
+            const pos = getMousePos(e);
+            lastX = pos.x;
+            lastY = pos.y;
+        });
+
+        canvas.addEventListener('mousemove', (e) => {
+            if (isDrawing) {
+                const pos = getMousePos(e);
+                const x = pos.x;
+                const y = pos.y;
+                const dx = x - lastX;
+                const dy = y - lastY;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                // Spawn particles along the mouse path
+                for (let i = 0; i < distance; i += 2) {
+                    const t = i / distance;
+                    const px = lastX + dx * t;
+                    const py = lastY + dy * t;
+                    const speed = distance / 10;
+                    particles.push({
+                        x: px,
+                        y: py,
+                        vx: (Math.random() - 0.5) * speed,
+                        vy: (Math.random() - 0.5) * speed,
+                        size: 2 + Math.random() * 3,
+                        color: `hsl(${hue}, 100%, 50%)`,
+                        life: 60 + Math.random() * 40
+                    });
+                }
+                lastX = x;
+                lastY = y;
+            }
+        });
+
+        canvas.addEventListener('mouseup', () => isDrawing = false);
+        canvas.addEventListener('mouseleave', () => isDrawing = false);
+
+        // Animation loop
+        function animate() {
+            // Fade canvas for trail effect
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+            ctx.fillRect(0, 0, width, height);
+
+            // Enable glow effect
+            ctx.globalCompositeOperation = 'lighter';
+
+            // Center for symmetry
+            const cx = width / 2;
+            const cy = height / 2;
+
+            // Update and draw particles
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                p.vx *= 0.98; // Deceleration
+                p.vy *= 0.98;
+                p.life -= 1;
+
+                if (p.life <= 0) {
+                    particles.splice(i, 1);
+                    continue;
+                }
+
+                // Draw particle with symmetry
+                for (let s = 0; s < symmetry; s++) {
+                    const angle = (s / symmetry) * Math.PI * 2;
+                    const dx = p.x - cx;
+                    const dy = p.y - cy;
+                    const rotX = cx + dx * Math.cos(angle) - dy * Math.sin(angle);
+                    const rotY = cy + dx * Math.sin(angle) + dy * Math.cos(angle);
+                    const alpha = p.life / 100;
+
+                    ctx.beginPath();
+                    ctx.arc(rotX, rotY, p.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `hsla(${hue}, 100%, 50%, ${alpha})`;
+                    ctx.fill();
+                }
+            }
+
+            // Cycle hue for rainbow effect
+            hue = (hue + 1) % 360;
+
+            // Reset composite operation
+            ctx.globalCompositeOperation = 'source-over';
+
+            requestAnimationFrame(animate);
+        }
+
+        // Start animation
+        animate();
+    </script>
+</body>
+</html>
