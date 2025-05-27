@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dilip Pariyar- Portfolio</title>
+    <title>Dilip Pariyar - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* General Reset and Base Styles */
@@ -31,16 +31,61 @@
             padding: 15px 0;
             z-index: 1000;
             transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 60px;
         }
 
-        nav ul {
+        /* Styles for the hamburger menu button */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.8rem;
+            cursor: pointer;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            z-index: 1001;
+            padding: 5px 10px;
+            border-radius: 5px;
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            transition: outline-color 0.2s ease;
+        }
+
+        .menu-toggle:focus {
+            outline-color: #00e6ff;
+        }
+
+        .menu-toggle .fa-bars,
+        .menu-toggle .fa-times {
+            transition: transform 0.3s ease;
+        }
+        
+        .menu-toggle .fa-times {
+            display: none; 
+        }
+
+        .menu-toggle.active .fa-bars {
+            display: none;
+        }
+        .menu-toggle.active .fa-times {
+            display: inline-block;
+        }
+
+        .nav-links {
             list-style: none;
             display: flex;
             justify-content: center;
             gap: 30px;
+            margin: 0;
+            padding: 0;
         }
 
-        nav ul li a {
+        .nav-links li a {
             color: #fff;
             text-decoration: none;
             font-size: 1.1rem;
@@ -48,9 +93,11 @@
             letter-spacing: 1px;
             position: relative;
             transition: color 0.3s ease;
+            padding: 5px 0;
+            display: block;
         }
 
-        nav ul li a::after {
+        .nav-links li a::after {
             content: '';
             position: absolute;
             bottom: -5px;
@@ -61,23 +108,67 @@
             transition: width 0.3s ease;
         }
 
-        nav ul li a:hover::after {
+        .nav-links li a:hover::after,
+        .nav-links li a:focus::after {
             width: 100%;
         }
 
-        nav ul li a:hover {
+        .nav-links li a:hover,
+        .nav-links li a:focus {
             color: #00e6ff;
+            outline: none;
         }
+
+        /* Responsive Navigation (Collapsible Menu) */
+        @media (max-width: 768px) {
+            nav {
+                justify-content: flex-end;
+                padding-right: 20px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: rgba(13, 13, 26, 0.95);
+                backdrop-filter: blur(10px);
+                transform: translateY(-100%);
+                transition: transform 0.3s ease-out;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                text-align: center;
+                height: 0;
+                overflow: hidden;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                height: auto;
+                max-height: calc(100vh - 60px);
+                overflow-y: auto;
+            }
+        }
+
 
         /* Hero Section */
         #hero {
             height: 100vh;
             position: relative;
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            align-items: center; /* Center horizontally */
             justify-content: center;
             text-align: center;
             overflow: hidden;
+            padding-top: 60px;
+            padding: 20px;
         }
 
         #hero::before {
@@ -100,11 +191,19 @@
             position: absolute;
             width: 100%;
             height: 100%;
+            top: 0;
+            left: 0;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
+            padding: 0 20px;
+            display: flex; /* Use flexbox to center its children */
+            flex-direction: column; /* Stack children vertically */
+            align-items: center; /* Center children horizontally */
+            justify-content: center;
+            width: 100%; /* Ensure it takes full width to center effectively */
         }
 
         #hero h1 {
@@ -115,6 +214,8 @@
             background-clip: text;
             color: transparent;
             animation: textShine 3s infinite alternate;
+            margin-bottom: 10px;
+            word-break: break-word;
         }
 
         @keyframes textShine {
@@ -125,31 +226,49 @@
         #hero p {
             font-size: 1.5rem;
             color: #d1d1d1;
-            margin: 20px 0;
+            margin: 0 0 20px 0;
             animation: fadeSlideUp 1s ease-out 0.5s forwards;
             opacity: 0;
         }
 
-        .cta-btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 15px 40px;
-            background: linear-gradient(135deg, #ff00cc, #00e6ff);
-            color: #fff;
-            font-size: 1.2rem;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.4s ease;
+        /* Profile Picture in Hero (new position and size) */
+        .hero-profile-pic {
+            width: 250px; 
+            height: 250px;
+            background: url('image_fe3192.png') center/cover no-repeat; 
+            border-radius: 50%;
+            border: 5px solid #00e6ff;
+            position: relative;
+            animation: rotateBorder 6s infinite linear;
+            margin-bottom: 30px;
+            z-index: 2;
+            box-shadow: 0 0 20px rgba(0, 230, 255, 0.5);
+            flex-shrink: 0;
+            /* No need for specific alignment here, as parent .hero-content handles centering */
         }
 
-        .cta-btn i {
-            margin-right: 10px;
+        .hero-profile-pic::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            border: 2px dashed #ff00cc;
+            border-radius: 50%;
+            animation: spinReverse 4s infinite linear;
         }
 
-        .cta-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 230, 255, 0.5);
+        @keyframes rotateBorder {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
+
+        @keyframes spinReverse {
+            0% { transform: rotate(360deg); }
+            100% { transform: rotate(0deg); }
+        }
+
 
         /* General Section Styles */
         section {
@@ -174,6 +293,7 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            text-align: center;
         }
 
         /* About Section */
@@ -181,49 +301,14 @@
             background: rgba(255, 255, 255, 0.05);
             border-radius: 20px;
             padding: 60px;
-        }
-
-        .about-container {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .profile-pic {
-            width: 200px;
-            height: 200px;
-            background: url('https://via.placeholder.com/200') center/cover;
-            border-radius: 50%;
-            border: 5px solid #00e6ff;
-            position: relative;
-            animation: rotateBorder 6s infinite linear;
-        }
-
-        @keyframes rotateBorder {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .profile-pic::before {
-            content: '';
-            position: absolute;
-            top: -15px;
-            left: -15px;
-            right: -15px;
-            bottom: -15px;
-            border: 2px dashed #ff00cc;
-            border-radius: 50%;
-            animation: spinReverse 4s infinite linear;
-        }
-
-        @keyframes spinReverse {
-            0% { transform: rotate(360deg); }
-            100% { transform: rotate(0deg); }
+            text-align: center;
         }
 
         #about p {
             font-size: 1.2rem;
             color: #d1d1d1;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         /* Skills Section */
@@ -235,6 +320,9 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 30px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
         .skill-item {
@@ -392,6 +480,7 @@
             height: 200px;
             background: #333;
             border-radius: 10px;
+            margin-bottom: 15px;
         }
 
         .project-card h3 {
@@ -405,10 +494,11 @@
 
         /* Footer */
         footer {
-            padding: 60px 20px;
+            padding: 40px 20px; /* Reduced padding from 60px to 40px */
             background: linear-gradient(135deg, #ff00cc, #00e6ff);
             position: relative;
             overflow: hidden;
+            text-align: center;
         }
 
         footer::before {
@@ -422,39 +512,33 @@
             opacity: 0.2;
         }
 
-        .contact-form {
-            max-width: 500px;
-            margin: 0 auto 40px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .contact-form input, .contact-form textarea {
-            padding: 15px;
-            border: none;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.9);
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .contact-form input:focus, .contact-form textarea:focus {
-            outline: none;
-            box-shadow: 0 0 10px #00e6ff;
-        }
-
-        .contact-form button {
-            padding: 15px;
+        .cta-btn-footer {
+            display: inline-flex;
+            align-items: center;
+            padding: 15px 40px;
             background: #0d0d1a;
             color: #fff;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            margin-bottom: 30px; /* Reduced margin-bottom from 40px to 30px */
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            transition: outline-color 0.2s ease, transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease, color 0.4s ease;
         }
 
-        .contact-form button:hover {
+        .cta-btn-footer:focus {
+            outline-color: #00e6ff;
+        }
+
+        .cta-btn-footer i {
+            margin-right: 10px;
+        }
+
+        .cta-btn-footer:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
             background: #00e6ff;
             color: #0d0d1a;
         }
@@ -463,25 +547,59 @@
             display: flex;
             justify-content: center;
             gap: 20px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            margin-bottom: 20px; /* Added margin for space between social icons and copyright */
         }
 
-        .social-icons a {
+        .social-icons li a {
             color: #fff;
             font-size: 2rem;
             transition: all 0.3s ease;
+            display: block;
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            transition: outline-color 0.2s ease, transform 0.3s ease, color 0.3s ease;
         }
 
-        .social-icons a:hover {
+        .social-icons li a:focus {
+            outline-color: #00e6ff;
+        }
+
+        .social-icons li a:hover {
             transform: scale(1.2) rotate(10deg);
             color: #0d0d1a;
         }
 
-        /* Responsive Design */
+        .footer-copyright { /* New class for copyright text */
+            font-size: 0.9rem;
+            color: #d1d1d1;
+            margin-top: 10px; /* Adjust as needed */
+        }
+
+
+        /* Visually hidden class for screen readers */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* General Responsive Adjustments */
         @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                gap: 15px;
-                padding: 20px;
+            h2 {
+                font-size: 2.5rem;
+            }
+
+            section {
+                padding: 60px 15px;
             }
 
             #hero h1 {
@@ -492,34 +610,68 @@
                 font-size: 1.2rem;
             }
 
-            .about-container {
-                flex-direction: column;
-                text-align: center;
+            /* Profile Picture size for mobile */
+            .hero-profile-pic {
+                width: 150px; 
+                height: 150px;
+                margin-bottom: 20px;
+            }
+            .hero-profile-pic::before {
+                top: -10px;
+                left: -10px;
+                right: -10px;
+                bottom: -10px;
             }
 
+            #about {
+                padding: 40px 20px;
+            }
+            
+            /* Timeline adjustments for mobile */
             .timeline::before {
                 left: 20px;
+                transform: translateX(0);
             }
 
             .timeline-item {
                 flex-direction: column;
                 align-items: flex-start;
+                margin-left: 0;
+                padding-left: 40px;
             }
 
             .timeline-content {
-                width: 80%;
-                margin-left: 40px;
+                width: 100%;
+                margin-left: 0;
+                transform: translateX(0);
             }
 
-            .timeline-item:nth-child(even) .timeline-content {
-                order: 0;
-                margin-left: 40px;
+            .timeline-item.in-view .timeline-content,
+            .timeline-item.in-view:nth-child(even) .timeline-content {
+                transform: translateX(0);
+            }
+
+            .timeline-dot {
+                left: 20px;
+                transform: translateX(-50%);
             }
 
             .projects-grid {
                 grid-template-columns: 1fr;
             }
+
+            .cta-btn-footer {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
         }
+        /* Mobile specific adjustments for nav links */
+        @media (max-width: 768px) {
+            .nav-links li a {
+                padding: 10px 0;
+            }
+        }
+
 
         @keyframes fadeSlideUp {
             from { opacity: 0; transform: translateY(20px); }
@@ -528,144 +680,145 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav aria-label="Main Navigation">
+            <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu" title="Toggle navigation menu">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+                <i class="fas fa-times" aria-hidden="true"></i>
+                <span class="sr-only">Toggle navigation menu</span>
+            </button>
+            <ul id="main-menu" class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="projects.html" target="_blank">View Projects</a></li> 
+                <li><a href="blog.html" target="_blank">My Blog</a></li>
+                <li><a href="testimonials.html" target="_blank">Testimonials</a></li>
+                <li><a href="contact-page.html" target="_blank">Full Contact Page</a></li>
+                <li><a href="#contact">Contact (footer)</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Hero Section -->
     <section id="hero">
-        <div id="particles-js"></div>
+        <div id="particles-js" aria-hidden="true"></div>
         <div class="hero-content">
+            <div class="hero-profile-pic" role="img" aria-label="Professional picture of Dilip Pariyar with rotating borders">
+        <img src="dilip.jpg" >
+            </div>
             <h1>Dilip Pariyar</h1>
             <p>Digital Marketing & Web Development Professional</p>
-            <a href="Dilip_Pariyar_Resume.pdf" download class="cta-btn">
-                <i class="fas fa-download"></i> Download Resume
-            </a>
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about">
         <h2>About Me</h2>
-        <div class="about-container">
-            <div class="profile-pic">
-                <img src="dilip.jpg" alt="picture of Dilip Pariyar">
-        </div>
-            <p>
-                I’m a passionate digital marketing and web accessibility professional with a Bachelor of Management Studies in Marketing from Shankar Narayan College, Mumbai University. Certified in Fundamentals of Digital Marketing (Google), E-commerce and Digital Marketing (Coursera), and skilled in Programming and Advanced Excel via Vision Aid. With 5 months of SEO experience, I blend technical expertise with creative marketing strategies to deliver impactful results.
-            </p>
-        </div>
+        <p>
+            I’m a passionate digital marketing and web accessibility professional with a Bachelor of Management Studies in Marketing from Shankar Narayan College, Mumbai University. Certified in Fundamentals of Digital Marketing (Google), E-commerce and Digital Marketing (Coursera), and skilled in Programming and Advanced Excel via Vision Aid. With 5 months of SEO experience, I blend technical expertise with creative marketing strategies to deliver impactful results.
+        </p>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills">
-    <h2>Skills</h2>
-    <ul class="skills-grid">
-        <li class="skill-item">
-            <svg class="skill-circle" width="100" height="100">
-                <circle cx="50" cy="50" r="45" />
-            </svg>
-            <span>HTML</span>
-        </li>
-        <li class="skill-item">
-            <svg class="skill-circle" width="100" height="100">
-                <circle cx="50" cy="50" r="45" />
-            </svg>
-            <span>CSS</span>
-        </li>
-        <li class="skill-item">
-            <svg class="skill-circle" width="100" height="100">
-                <circle cx="50" cy="50" r="45" />
-            </svg>
-            <span>JavaScript</span>
-        </li>
-        <li class="skill-item">
-            <svg class="skill-circle" width="100" height="100">
-                <circle cx="50" cy="50" r="45" />
-            </svg>
-            <span>Python</span>
-        </li>
-        <li class="skill-item">
-            <svg class="skill-circle" width="100" height="100">
-                <circle cx="50" cy="50" r="45" />
-            </svg>
-            <span>SEO</span>
-        </li>
-        <li class="skill-item">
-            <svg class="skill-circle" width="100" height="100">
-                <circle cx="50" cy="50" r="45" />
-            </svg>
-            <span>Social Media</span>
-        </li>
-    </ul>
-</section>
-    <!-- Experience Section -->
+        <h2>Skills</h2>
+        <ul class="skills-grid">
+            <li class="skill-item">
+                <svg class="skill-circle" width="100" height="100" viewBox="0 0 100 100" aria-labelledby="html-skill-title">
+                    <title id="html-skill-title">HTML Skill Progress</title>
+                    <circle cx="50" cy="50" r="45" />
+                </svg>
+                <span>HTML</span>
+            </li>
+            <li class="skill-item">
+                <svg class="skill-circle" width="100" height="100" viewBox="0 0 100 100" aria-labelledby="css-skill-title">
+                    <title id="css-skill-title">CSS Skill Progress</title>
+                    <circle cx="50" cy="50" r="45" />
+                </svg>
+                <span>CSS</span>
+            </li>
+            <li class="skill-item">
+                <svg class="skill-circle" width="100" height="100" viewBox="0 0 100 100" aria-labelledby="javascript-skill-title">
+                    <title id="javascript-skill-title">JavaScript Skill Progress</title>
+                    <circle cx="50" cy="50" r="45" />
+                </svg>
+                <span>JavaScript</span>
+            </li>
+            <li class="skill-item">
+                <svg class="skill-circle" width="100" height="100" viewBox="0 0 100 100" aria-labelledby="python-skill-title">
+                    <title id="python-skill-title">Python Skill Progress</title>
+                    <circle cx="50" cy="50" r="45" />
+                </svg>
+                <span>Python</span>
+            </li>
+            <li class="skill-item">
+                <svg class="skill-circle" width="100" height="100" viewBox="0 0 100 100" aria-labelledby="seo-skill-title">
+                    <title id="seo-skill-title">SEO Skill Progress</title>
+                    <circle cx="50" cy="50" r="45" />
+                </svg>
+                <span>SEO</span>
+            </li>
+            <li class="skill-item">
+                <svg class="skill-circle" width="100" height="100" viewBox="0 0 100 100" aria-labelledby="social-media-skill-title">
+                    <title id="social-media-skill-title">Social Media Skill Progress</title>
+                    <circle cx="50" cy="50" r="45" />
+                </svg>
+                <span>Social Media</span>
+            </li>
+        </ul>
+    </section>
+
     <section id="experience">
         <h2>Experience</h2>
         <div class="timeline">
             <div class="timeline-item">
-                <div class="timeline-dot"></div>
+                <div class="timeline-dot" aria-hidden="true"></div>
                 <div class="timeline-content">
                     <h3>SEO Intern</h3>
                     <p>5 months of hands-on experience optimizing websites for search engines, conducting keyword research, and boosting organic rankings.</p>
                 </div>
             </div>
-            <!-- Add more timeline items as needed -->
-        </div>
+            </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects">
         <h2>Projects</h2>
         <div class="projects-grid">
             <div class="project-card">
-                <div class="project-image"></div>
+                <div class="project-image" role="img" aria-label="Project image placeholder: SEO Campaign"></div>
                 <h3>SEO Campaign</h3>
                 <p>Developed a successful SEO strategy that increased website traffic by 40% in 3 months.</p>
             </div>
             <div class="project-card">
-                <div class="project-image"></div>
+                <div class="project-image" role="img" aria-label="Project image placeholder: Portfolio Website"></div>
                 <h3>Portfolio Website</h3>
                 <p>Designed and coded this interactive portfolio using HTML, CSS, and JavaScript.</p>
             </div>
-            <!-- Add more projects as needed -->
-            <a href="project.html" target="_blank" align="center" role="button"> Click here to view more project </a>
+            <div style="text-align: center; grid-column: 1 / -1; margin-top: 20px;">
+                <a href="project.html" target="_blank" class="cta-btn-footer" aria-label="View More Projects">View More Projects</a> 
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer id="contact">
         <h2>Contact Me</h2>
-        <form class="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-        <div class="social-icons" 
-            role="region" aria-label="contact me on following social media channels"
-            role="heading" aria-level="3"
-            >
-            <a href="https://www.facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/dilip_pariyar" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.linkedin.com/in/dilip-pariyar" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://www.youtube.com" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="https://github.com" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="tel:+918657213745" title="Phone" aria-label="click to call"><i class="fas fa-phone"></i></a>
-            <a href="mailto:dilippariyar06@gmail.com" title="Email" aria-label="click to send E mail "><i class="fas fa-envelope"></i></a>
+        <a href="Dilip_Pariyar_Resume.pdf" download class="cta-btn-footer" aria-label="Download Dilip Pariyar's Resume">
+            <i class="fas fa-download" aria-hidden="true"></i> Download Resume
+        </a>
+
+        <div role="contentinfo">
+            <h3 class="sr-only">Connect with me on Social Media</h3>
+            <ul class="social-icons">
+                <li><a href="mailto:dilippariyar06@gmail.com" title="Email" aria-label="Email Dilip Pariyar"><i class="fas fa-envelope" aria-hidden="true"></i></a></li>
+                <li><a href="tel:+918657213745" title="Phone" aria-label="Call Dilip Pariyar"><i class="fas fa-phone" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/dilip-pariyar" target="_blank" title="LinkedIn" aria-label="LinkedIn Profile"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                <li><a href="https://github.com" target="_blank" title="GitHub" aria-label="GitHub Profile"><i class="fab fa-github" aria-hidden="true"></i></a></li>
+            </ul>
+
+            <p class="footer-copyright">&copy; 2025 Dilip Pariyar. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         // Particles.js Configuration
@@ -691,13 +844,67 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('in-view');
+                } else {
+                    // Optional: remove in-view class when not visible
+                    // entry.target.classList.remove('in-view');
                 }
             });
         }, { threshold: 0.2 });
 
-        document.querySelectorAll('section, .skill-item, .timeline-item').forEach(el => {
+        document.querySelectorAll('section, .skill-item, .timeline-item, .project-card').forEach(el => {
             observer.observe(el);
         });
+
+        // Fix for collapsible menu
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        // Function to toggle menu
+        function toggleMenu() {
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        }
+
+        // Event listener for click (mouse) and keydown (Enter key for accessibility)
+        menuToggle.addEventListener('click', toggleMenu);
+        menuToggle.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                toggleMenu();
+            }
+        });
+
+        // Close menu when a navigation link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768 && navLinks.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // Dynamic skill circle animation (ensure this runs after skill-item elements are 'in-view')
+        const skillItems = document.querySelectorAll('.skill-item');
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const circle = entry.target.querySelector('.skill-circle circle');
+                    if (circle) {
+                        const animationDuration = 1000;
+                        circle.style.transition = `stroke-dashoffset ${animationDuration / 1000}s ease`;
+                        circle.style.strokeDashoffset = 0;
+                    }
+                    skillObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        skillItems.forEach(item => {
+            skillObserver.observe(item);
+        });
+
     </script>
 </body>
-</html>    
+</html>
