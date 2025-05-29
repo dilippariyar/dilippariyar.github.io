@@ -26,19 +26,30 @@
             overflow-x: hidden;
         }
 
+        .visually-hidden { /* Added for accessibility */
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
         /* Navigation */
-        .main-header { /* Changed nav to header for semantics */
+        .main-header {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(13, 13, 26, 0.85); /* Slightly adjusted opacity */
+            background: rgba(13, 13, 26, 0.85);
             backdrop-filter: blur(10px);
-            padding: 15px 20px; /* Added horizontal padding */
+            padding: 15px 20px;
             z-index: 1000;
             transition: all 0.3s ease;
-            display: flex; /* For aligning logo and nav */
-            justify-content: space-between; /* For logo and nav */
-            align-items: center; /* For logo and nav */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
@@ -49,22 +60,22 @@
         }
 
         .main-nav {
-            display: flex; /* For desktop view */
+            display: flex;
         }
 
         .main-nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
-            gap: 25px; /* Adjusted gap */
+            gap: 25px;
         }
 
         .main-nav ul li a {
             color: #fff;
             text-decoration: none;
-            font-size: 1rem; /* Adjusted font size */
+            font-size: 1rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px; /* Adjusted letter spacing */
+            letter-spacing: 0.5px;
             position: relative;
             transition: color 0.3s ease;
             padding: 5px 0;
@@ -82,7 +93,7 @@
         }
 
         .main-nav ul li a:hover::after,
-        .main-nav ul li a.active::after { /* Style for active link */
+        .main-nav ul li a.active::after {
             width: 100%;
         }
 
@@ -92,7 +103,7 @@
         }
 
         .nav-toggle {
-            display: none; /* Hidden by default */
+            display: none;
             background: none;
             border: none;
             color: #fff;
@@ -102,12 +113,13 @@
         }
 
         /* Picture and Name Section (Adapted Hero) */
-        #intro { /* Renamed from hero for clarity and to include picture */
-            min-height: 100vh; /* Use min-height to adapt to content */
-            padding-top: 80px; /* Account for fixed header */
+        #intro {
+            min-height: 100vh;
+            padding-top: 100px; /* Increased padding for larger image and fixed header */
+            padding-bottom: 40px;
             position: relative;
             display: flex;
-            flex-direction: column; /* Stack image and text */
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
@@ -121,7 +133,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at center, rgba(0, 230, 255, 0.15), transparent 60%); /* Adjusted glow */
+            background: radial-gradient(circle at center, rgba(0, 230, 255, 0.15), transparent 60%);
             animation: pulseGlow 8s infinite ease-in-out;
         }
 
@@ -134,7 +146,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            z-index: -1; /* Behind content */
+            z-index: -1;
         }
 
         .intro-content {
@@ -147,29 +159,29 @@
         }
 
         .profile-image-container {
-            margin-bottom: 30px;
+            margin-bottom: 35px; /* Slightly increased margin for larger image */
         }
 
         .profile-image-container img {
-            width: 220px; /* Adjust as needed */
-            height: 220px; /* Adjust as needed */
+            width: 300px; /* Increased size */
+            height: 300px; /* Increased size */
             border-radius: 50%;
-            border: 7px solid #00e6ff;
-            box-shadow: 0 0 25px rgba(0, 230, 255, 0.7);
+            border: 8px solid #00e6ff; /* Slightly thicker border */
+            box-shadow: 0 0 35px rgba(0, 230, 255, 0.7), 0 0 15px rgba(255, 255, 255, 0.2) inset; /* Enhanced shadow */
             object-fit: cover;
         }
 
         #intro h1 {
-            font-size: 4rem; /* Slightly adjusted */
+            font-size: 4rem;
             font-weight: 700;
             background: linear-gradient(45deg, #00e6ff, #ff00cc);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             animation: textShine 3s infinite alternate;
-            margin: 0; /* Remove default margin */
-            width: 70%; /* At least 60% width */
-            max-width: 800px; /* Max width for larger screens */
+            margin: 0;
+            width: 80%; /* Adjusted width for better text flow with larger image */
+            max-width: 800px;
         }
 
         @keyframes textShine {
@@ -177,16 +189,16 @@
             100% { filter: drop-shadow(0 0 18px #ff00cc); }
         }
 
-        #intro .subtitle { /* Changed p to a div with class for semantic clarity */
-            font-size: 1.4rem; /* Slightly adjusted */
+        #intro .subtitle {
+            font-size: 1.4rem;
             color: #d1d1d1;
-            margin: 20px 0 0; /* Removed bottom margin as CTA is gone from here */
+            margin: 20px 0 0;
             animation: fadeSlideUp 1s ease-out 0.5s forwards;
             opacity: 0;
         }
         
         /* General Section Styles */
-        .content-section { /* Using a class for common section styling */
+        .content-section {
             padding: 80px 20px;
             max-width: 1200px;
             margin: 0 auto;
@@ -201,10 +213,10 @@
             transform: translateY(0);
         }
 
-        .section-title { /* Common style for h2 */
-            font-size: 2.8rem; /* Adjusted */
-            margin-bottom: 50px; /* Adjusted */
-            text-align: center; /* Center titles */
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            text-align: center;
             background: linear-gradient(45deg, #ff00cc, #00e6ff);
             -webkit-background-clip: text;
             background-clip: text;
@@ -213,9 +225,9 @@
 
         /* About Section */
         #about {
-            background: rgba(255, 255, 255, 0.03); /* Slightly more subtle */
+            background: rgba(255, 255, 255, 0.03);
             border-radius: 20px;
-            padding: 50px; /* Adjusted */
+            padding: 50px;
         }
 
         .about-container {
@@ -224,107 +236,105 @@
             gap: 40px;
         }
 
-        .about-profile-pic { /* Renamed to avoid conflict with main profile pic */
-            width: 180px; /* Adjusted size */
+        .about-profile-pic { /* Rotating animations removed */
+            width: 180px;
             height: 180px;
-            background: url('https://via.placeholder.com/180/333/FFF?text=About') center/cover; /* Placeholder */
+            background: url('https://via.placeholder.com/180/333/FFF?text=DP') center/cover; /* Placeholder - update with actual image if needed */
             border-radius: 50%;
-            border: 5px solid #00c3cc; /* Slightly different shade for variation */
+            border: 5px solid #00c3cc;
             position: relative;
-            animation: rotateBorder 8s infinite linear;
-            flex-shrink: 0; /* Prevent shrinking */
+            flex-shrink: 0;
+            /* animation: rotateBorder 8s infinite linear; -- REMOVED */
         }
 
-        @keyframes rotateBorder {
+        /* @keyframes rotateBorder { -- REMOVED
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
-        }
+        } */
 
-        .about-profile-pic::before {
+        /* .about-profile-pic::before { -- REMOVED as it was part of the rotation animation
             content: '';
             position: absolute;
-            top: -12px; left: -12px; right: -12px; bottom: -12px; /* Adjusted */
-            border: 2px dashed #e600ff; /* Slightly different shade */
+            top: -12px; left: -12px; right: -12px; bottom: -12px; 
+            border: 2px dashed #e600ff; 
             border-radius: 50%;
-            animation: spinReverse 6s infinite linear; /* Adjusted speed */
-        }
+            animation: spinReverse 6s infinite linear; 
+        } */
 
-        @keyframes spinReverse {
+        /* @keyframes spinReverse { -- REMOVED
             0% { transform: rotate(360deg); }
             100% { transform: rotate(0deg); }
+        } */
+
+        #about .about-text p {
+            font-size: 1.1rem;
+            color: #c0c0c0;
         }
 
-        #about .about-text p { /* More specific selector */
-            font-size: 1.1rem; /* Adjusted */
-            color: #c0c0c0; /* Slightly lighter */
-        }
-
-        /* Skills Section */
+        /* Skills Section - Simplified */
         #skills {
-            background: linear-gradient(135deg, rgba(0, 230, 255, 0.08), rgba(255, 0, 204, 0.08)); /* Subtle gradient */
+            background: linear-gradient(135deg, rgba(0, 230, 255, 0.08), rgba(255, 0, 204, 0.08));
         }
 
-        .skills-list { /* Changed from skills-grid to skills-list (ul) */
-            list-style: none; /* Remove default list styling */
+        .skills-list {
+            list-style: none;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 30px;
-            padding: 0; /* Remove default ul padding */
+            padding: 0;
         }
 
-        .skill-item { /* This is now an li */
+        .skill-item {
             text-align: center;
             padding: 20px;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow transition */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+             /* Styles for IntersectionObserver fade-in will be applied by JS */
         }
 
         .skill-item:hover {
-            transform: translateY(-5px) scale(1.05); /* Adjusted hover effect */
+            transform: translateY(-5px) scale(1.05);
             box-shadow: 0 8px 15px rgba(0, 230, 255, 0.2);
         }
 
         .skill-circle {
             width: 100px;
             height: 100px;
-            margin: 0 auto;
-            position: relative; /* For potential percentage text overlay */
+            margin: 0 auto 15px; /* Added margin-bottom */
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .skill-circle svg { /* Ensure SVG doesn't overflow */
+        .skill-circle svg {
             width: 100%;
             height: 100%;
         }
 
-
-        .skill-circle circle.progress-ring-bg { /* Background circle */
+        .skill-circle circle.progress-ring-bg {
             fill: none;
             stroke: rgba(255, 255, 255, 0.1);
             stroke-width: 10;
         }
         
-        .skill-circle circle.progress-ring-fg { /* Foreground (progress) circle */
+        .skill-circle circle.progress-ring-fg {
             fill: none;
             stroke-width: 10;
             stroke: #00e6ff;
             stroke-dasharray: 283; /* Circumference for r=45 (2*PI*45) */
-            stroke-dashoffset: 283; /* Start with no progress */
-            stroke-linecap: round; /* Rounded ends */
+            stroke-dashoffset: 0; /* Circle is fully drawn, no JS animation for percentage */
+            stroke-linecap: round;
             transform-origin: 50% 50%;
-            transform: rotate(-90deg); /* Start from top */
-            transition: stroke-dashoffset 1s cubic-bezier(0.65, 0, 0.35, 1); /* Smoother transition */
+            /* transform: rotate(-90deg); /* Can be kept or removed for static circle */
         }
-
-        .skill-item.in-view .skill-circle circle.progress-ring-fg {
-            /* stroke-dashoffset is set by JS based on skill level */
-        }
+        /* Removed .skill-item.in-view .skill-circle circle.progress-ring-fg as JS animation for percentage is removed */
 
         .skill-item span {
             display: block;
-            margin-top: 15px; /* Increased margin */
             font-size: 1.1rem;
-            font-weight: 500; /* Slightly bolder */
+            font-weight: 500;
         }
 
         /* Experience Section */
@@ -347,10 +357,10 @@
             height: 100%;
             background: linear-gradient(to bottom, #00e6ff, #ff00cc);
             transform: translateX(-50%);
-            border-radius: 2px; /* Soften edges */
+            border-radius: 2px;
         }
 
-        .timeline-item-wrapper { /* Wrapper for IntersectionObserver */
+        .timeline-item-wrapper {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
@@ -360,24 +370,24 @@
             transform: translateY(0);
         }
 
-        .timeline-item { /* This is now an article */
+        .timeline-item {
             position: relative;
-            margin: 50px 0; /* Adjusted margin */
+            margin: 50px 0;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start; /* Align items to the start for better text flow */
+            align-items: flex-start;
         }
         
         .timeline-content {
-            width: calc(45% - 20px); /* Adjusted width accounting for gap */
-            background: rgba(255, 255, 255, 0.08); /* Slightly more visible */
-            padding: 25px; /* Increased padding */
+            width: calc(45% - 20px);
+            background: rgba(255, 255, 255, 0.08);
+            padding: 25px;
             border-radius: 15px;
-            position: relative; /* For arrow */
+            position: relative;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         
-        .timeline-content::before { /* Arrow pointing to timeline */
+        .timeline-content::before {
             content: '';
             position: absolute;
             top: 20px;
@@ -387,33 +397,32 @@
         }
 
         .timeline-item:nth-child(odd) .timeline-content {
-            order: 0; /* Default order for odd items */
+            order: 0;
         }
         .timeline-item:nth-child(odd) .timeline-content::before {
-            right: -10px; /* Arrow on the right */
+            right: -10px;
             border-width: 10px 0 10px 10px;
             border-color: transparent transparent transparent rgba(255, 255, 255, 0.08);
         }
 
         .timeline-item:nth-child(even) .timeline-content {
-            order: 1; /* Content to the right */
+            order: 1;
         }
-         .timeline-item:nth-child(even) .timeline-content::before {
-            left: -10px; /* Arrow on the left */
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -10px;
             border-width: 10px 10px 10px 0;
             border-color: transparent rgba(255, 255, 255, 0.08) transparent transparent;
         }
 
-
         .timeline-dot {
-            width: 22px; /* Slightly larger */
+            width: 22px;
             height: 22px;
             background: #ff00cc;
-            border: 3px solid #0d0d1a; /* Dot appears on top of line */
+            border: 3px solid #0d0d1a;
             border-radius: 50%;
             position: absolute;
             left: 50%;
-            top: 20px; /* Align with content arrow */
+            top: 20px;
             transform: translateX(-50%);
             z-index: 1;
             animation: pulseDot 2s infinite ease-in-out;
@@ -425,13 +434,13 @@
         }
         
         .timeline-content h3 {
-            font-size: 1.4rem; /* Adjusted */
-            color: #00e6ff; /* Accent color */
+            font-size: 1.4rem;
+            color: #00e6ff;
             margin-bottom: 10px;
         }
         .timeline-content p {
-            font-size: 0.95rem; /* Adjusted */
-            color: #b0b0b0; /* Lighter text */
+            font-size: 0.95rem;
+            color: #b0b0b0;
         }
         .timeline-date {
             font-size: 0.9rem;
@@ -440,32 +449,31 @@
             display: block;
         }
 
-
         /* Projects Section */
         #projects {
-            background: rgba(255, 255, 255, 0.03); /* Consistent with about section */
+            background: rgba(255, 255, 255, 0.03);
         }
 
-        .projects-list { /* Changed from projects-grid to projects-list (ul) */
-            list-style: none; /* Remove default list styling */
+        .projects-list {
+            list-style: none;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            padding: 0; /* Remove default ul padding */
+            padding: 0;
         }
 
-        .project-card { /* This is now an li or article */
-            background: rgba(255, 255, 255, 0.07); /* Slightly more visible */
-            padding: 25px; /* Increased padding */
+        .project-card {
+            background: rgba(255, 255, 255, 0.07);
+            padding: 25px;
             border-radius: 15px;
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
-            display: flex; /* For better content control */
+            display: flex;
             flex-direction: column;
         }
 
-        .project-card::before { /* Hover glow effect */
+        .project-card::before {
             content: '';
             position: absolute;
             top: -50%; left: -50%;
@@ -486,14 +494,14 @@
             box-shadow: 0 15px 30px rgba(0, 230, 255, 0.2);
         }
 
-        .project-image-placeholder { /* Changed from project-image to avoid img tag confusion */
+        .project-image-placeholder {
             width: 100%;
             height: 200px;
-            background-color: #334; /* Darker placeholder */
+            background-color: #334;
             background-image: linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.05) 75%, transparent 75%, transparent);
             background-size: 30px 30px;
             border-radius: 10px;
-            margin-bottom: 20px; /* Space below image */
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -502,19 +510,19 @@
         }
 
         .project-card h3 {
-            margin: 0 0 10px 0; /* Adjusted margin */
-            font-size: 1.4rem; /* Adjusted */
-            color: #00e6ff; /* Consistent accent */
+            margin: 0 0 10px 0;
+            font-size: 1.4rem;
+            color: #00e6ff;
         }
 
         .project-card p {
-            color: #b0b0b0; /* Lighter text */
-            font-size: 0.95rem; /* Adjusted */
-            flex-grow: 1; /* Allows p to take available space */
+            color: #b0b0b0;
+            font-size: 0.95rem;
+            flex-grow: 1;
             margin-bottom: 15px;
         }
         .project-links {
-            margin-top: auto; /* Pushes links to the bottom */
+            margin-top: auto;
         }
         .project-links a {
             color: #00e6ff;
@@ -531,15 +539,15 @@
         }
 
         /* Footer */
-        .main-footer { /* Changed footer to .main-footer for consistency */
-            padding: 50px 20px 30px; /* Adjusted padding */
-            background: #12121f; /* Darker, modern background */
-            color: #fff; /* Ensure text is white */
+        .main-footer {
+            padding: 50px 20px 30px;
+            background: #12121f;
+            color: #fff;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
-        .main-footer::before { /* Subtle pattern or texture */
+        .main-footer::before {
             content: '';
             position: absolute;
             top: 0; left: 0;
@@ -551,28 +559,28 @@
             z-index: 0;
         }
 
-        .footer-content { /* Container for footer elements */
+        .footer-content {
             position: relative;
             z-index: 1;
         }
 
         .resume-button-container {
-            margin-bottom: 30px; /* Space below button */
+            margin-bottom: 30px;
         }
 
         .resume-download-btn {
             display: inline-block;
-            padding: 14px 35px; /* Adjusted padding */
+            padding: 14px 35px;
             color: #fff;
-            font-size: 1.1rem; /* Adjusted */
-            font-weight: 500; /* Adjusted */
+            font-size: 1.1rem;
+            font-weight: 500;
             text-decoration: none;
-            border-radius: 50px; /* Cylindrical shape */
+            border-radius: 50px;
             position: relative;
             overflow: hidden;
             z-index: 1;
-            transition: color 0.4s ease, transform 0.3s ease;
-            border: 2px solid transparent; /* For gradient border effect */
+            transition: color 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
             background-size: 400% 400%;
             background-image: linear-gradient(135deg, #00e6ff, #ff00cc, #00e6ff, #ff00cc);
             animation: gradientFlow 8s linear infinite;
@@ -589,59 +597,66 @@
             position: absolute;
             top: 0; left: 0;
             right: 0; bottom: 0;
-            background: #12121f; /* Match footer background, creates hollow effect */
-            border-radius: inherit; /* Match parent's border-radius */
-            margin: 2px; /* Controls border thickness */
+            background: #12121f;
+            border-radius: inherit;
+            margin: 2px;
             z-index: -1;
             opacity: 1;
             transition: opacity 0.4s ease;
         }
 
         .resume-download-btn:hover {
-            color: #fff; /* Ensure text remains white on hover */
-            transform: translateY(-3px) scale(1.02); /* Slight lift */
+            color: #fff;
+            transform: translateY(-3px) scale(1.02);
             box-shadow: 0 8px 20px rgba(0, 230, 255, 0.3), 0 8px 20px rgba(255, 0, 204, 0.3);
         }
         .resume-download-btn:hover::before {
-            opacity: 0; /* Reveal full gradient on hover */
+            opacity: 0;
         }
 
         .resume-download-btn i {
             margin-right: 8px;
         }
 
-        .social-icons {
+        .social-icons { /* Now a ul */
+            list-style: none;
+            padding: 0;
             display: flex;
             justify-content: center;
-            gap: 25px; /* Increased gap */
-            margin-bottom: 20px; /* Space below icons */
+            gap: 25px;
+            margin-bottom: 20px;
         }
 
-        .social-icons a {
-            color: #fff; /* White icons */
-            font-size: 1.8rem; /* Adjusted size */
+        .social-icons li a { /* Target a inside li */
+            color: #fff;
+            font-size: 1.8rem;
             transition: all 0.3s ease;
         }
 
-        .social-icons a:hover {
-            transform: scale(1.25) rotate(8deg); /* Adjusted hover effect */
-            color: #00e6ff; /* Change color on hover to a theme color */
+        .social-icons li a:hover {
+            transform: scale(1.25) rotate(8deg);
+            color: #00e6ff;
         }
 
         .copyright {
             font-size: 0.9rem;
-            color: #aaa; /* Lighter gray for copyright */
+            color: #aaa;
         }
 
 
         /* Responsive Design */
-        @media (max-width: 992px) {
+        @media (max-width: 992px) { /* Larger tablets / small laptops */
+            .profile-image-container img {
+                width: 260px;
+                height: 260px;
+            }
             #intro h1 {
                 font-size: 3.5rem;
-                width: 80%;
+                width: 85%; /* Slightly adjusted for better fit */
             }
             #intro .subtitle {
                 font-size: 1.3rem;
+                width: 90%;
             }
             .section-title {
                 font-size: 2.5rem;
@@ -655,32 +670,32 @@
             }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 768px) { /* Tablets and large phones */
             .main-header {
                 padding: 15px 20px;
             }
             .nav-toggle {
-                display: block; /* Show hamburger icon */
+                display: block;
             }
             .main-nav {
                 position: absolute;
-                top: 100%; /* Position below header */
+                top: 100%; 
                 left: 0;
                 width: 100%;
-                background: rgba(13, 13, 26, 0.98); /* Solid background for dropdown */
+                background: rgba(13, 13, 26, 0.98);
                 flex-direction: column;
                 align-items: center;
-                max-height: 0; /* Collapsed by default */
+                max-height: 0;
                 overflow: hidden;
-                transition: max-height 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Smooth transition */
+                transition: max-height 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), padding 0.5s ease;
             }
             .main-nav.active {
-                max-height: 500px; /* Adjust as needed for content */
+                max-height: 500px;
                 padding: 20px 0;
             }
             .main-nav ul {
                 flex-direction: column;
-                gap: 0; /* Remove gap, handle with li padding */
+                gap: 0;
                 width: 100%;
             }
             .main-nav ul li {
@@ -688,31 +703,31 @@
                 text-align: center;
             }
             .main-nav ul li a {
-                display: block; /* Make links full width */
-                padding: 15px 20px; /* Larger touch targets */
+                display: block;
+                padding: 15px 20px;
                 font-size: 1.1rem;
             }
-             .main-nav ul li a::after {
-                bottom: 5px; /* Adjust underline position */
+            .main-nav ul li a::after {
+                bottom: 5px;
                 left: 50%;
                 transform: translateX(-50%);
             }
 
             #intro {
-                padding-top: 100px; /* More padding for smaller hero */
-                min-height: auto; /* Let content define height */
+                padding-top: 80px; 
+                min-height: auto;
                 padding-bottom: 60px;
             }
             .profile-image-container img {
-                width: 180px;
-                height: 180px;
+                width: 220px; 
+                height: 220px;
             }
             #intro h1 {
-                font-size: 2.8rem; /* Smaller for mobile */
+                font-size: 2.8rem;
                 width: 90%;
             }
             #intro .subtitle {
-                font-size: 1.1rem; /* Smaller for mobile */
+                font-size: 1.1rem;
                 width: 90%;
             }
             
@@ -724,64 +739,98 @@
             #about { padding: 40px 20px; }
 
             .skills-list {
-                grid-template-columns: repeat(2, 1fr); /* Two skills in one row for mobile */
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
                 gap: 20px;
             }
             .skill-item { padding: 15px; }
             .skill-circle { width: 80px; height: 80px; }
             .skill-circle circle { stroke-width: 8; }
 
-
+            /* --- Mobile Timeline Refined --- */
             .timeline::before {
-                left: 20px; /* Shift timeline line to the left */
-                transform: translateX(0);
+                left: 20px; /* Position timeline line from left */
+                transform: translateX(0); /* No horizontal centering needed for the line itself */
             }
             .timeline-item {
-                flex-direction: column; /* Stack content vertically */
-                align-items: flex-start; /* Align to the new line */
-                margin-left: 40px; /* Space for content next to line */
-                padding-left: 0; /* Reset padding */
+                /* Remove flex properties that arrange side-by-side for desktop */
+                display: block; /* Let items stack */
+                padding-left: 45px; /* Space for line, dot, and gap to content: 20px(line_offset) + ~11px(half_dot) + ~14px(gap) */
+                position: relative; /* For dot and arrow positioning */
+                margin: 40px 0; /* Vertical spacing between items */
             }
+
             .timeline-item:nth-child(odd) .timeline-content,
             .timeline-item:nth-child(even) .timeline-content {
-                width: 100%; /* Full width content */
-                order: 0; /* Reset order */
-                margin-bottom: 20px;
+                width: 100%; /* Content takes full width available */
+                order: 0; /* Reset order, not needed for single column */
+                margin-left: 0; /* Content starts from the padding of timeline-item */
+                /* Remove box-shadow or reduce it for mobile if it feels too heavy */
+                /* box-shadow: 0 3px 10px rgba(0,0,0,0.15); */
             }
-            .timeline-item:nth-child(odd) .timeline-content::before,
-            .timeline-item:nth-child(even) .timeline-content::before {
-                left: -10px; /* Arrow on the left */
-                top: 15px;
-                border-width: 10px 10px 10px 0;
+
+            /* Arrow always points left from the content box towards the line */
+            .timeline-item .timeline-content::before { /* General rule for all items on mobile */
+                left: -10px; /* Position arrow relative to content box */
+                top: 20px; /* Align with dot */
+                border-width: 10px 10px 10px 0; /* Arrow pointing left */
                 border-color: transparent rgba(255, 255, 255, 0.08) transparent transparent;
             }
 
             .timeline-dot {
-                left: -9px; /* Position dot on the line (20px line - 22px/2 dot width) */
-                transform: translateX(0); /* No X transform needed */
-                top: 15px; /* Align with content */
+                left: 20px; /* Align with the line's position */
+                transform: translateX(-50%); /* Center the dot ON the 20px line */
+                top: 20px; /* Consistent vertical alignment with arrow */
             }
+            /* --- End Mobile Timeline Refined --- */
+
 
             .projects-list {
-                grid-template-columns: 1fr; /* Single column for projects */
+                grid-template-columns: 1fr;
             }
             .project-card { padding: 20px; }
 
             .resume-download-btn { padding: 12px 30px; font-size: 1rem; }
-            .social-icons a { font-size: 1.6rem; }
+            .social-icons li a { font-size: 1.6rem; }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 480px) { /* Small phones */
+            #intro {
+                padding-top: 70px;
+            }
+            .profile-image-container img {
+                width: 180px; 
+                height: 180px;
+            }
             #intro h1 { font-size: 2.2rem; }
             #intro .subtitle { font-size: 1rem; }
-            .profile-image-container img { width: 150px; height: 150px; }
+            
             .section-title { font-size: 1.9rem; }
-            .skills-list { gap: 15px; }
+            .skills-list {
+                grid-template-columns: repeat(2, 1fr); /* Two skills per row */
+                gap: 15px;
+            }
             .skill-item span { font-size: 1rem; }
+            .skill-circle { width: 70px; height: 70px; }
+            .skill-circle circle { stroke-width: 7; }
+
+            .timeline-item {
+                padding-left: 35px; /* Slightly less padding */
+                margin: 30px 0;
+            }
+             .timeline-content {
+                 padding: 20px;
+            }
+            .timeline-dot {
+                width: 20px; /* Slightly smaller dot */
+                height: 20px;
+                border-width: 2px;
+            }
+             .timeline-content::before { /* Arrow adjustments if needed for smaller dot */
+                top: 19px; /* Align with smaller dot */
+            }
         }
 
-
-        /* Animation for fade-in and slide-up */
+        /* Animation for fade-in and slide-up (general) */
         @keyframes fadeSlideUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -792,12 +841,12 @@
     <header class="main-header" role="banner">
         <a href="#intro" class="logo" aria-label="Dilip Pariyar - Home">DP</a>
         <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNavList">
-            <i class="fas fa-bars"></i>
+            <i class="fas fa-bars" aria-hidden="true"></i>
         </button>
         <nav class="main-nav" id="mainNav" role="navigation" aria-labelledby="primary-navigation-label">
-             <span id="primary-navigation-label" class="visually-hidden">Primary Navigation</span>
+            <span id="primary-navigation-label" class="visually-hidden">Primary Navigation</span>
             <ul id="mainNavList">
-                <li><a href="#intro">Home</a></li>
+                <li><a href="#intro" class="active">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
@@ -813,7 +862,7 @@
             <div id="particles-js" aria-hidden="true"></div>
             <div class="intro-content">
                 <div class="profile-image-container">
-                    <img src="dilip.jpg" alt="Dilip Pariyar's Photo">
+                    <img src="dilip.jpg" alt="Dilip Pariyar's Photo"> 
                 </div>
                 <h1 id="main-heading">Dilip Pariyar</h1>
                 <div class="subtitle">Digital Marketing & Web Accessibility Professional</div>
@@ -824,7 +873,6 @@
             <h2 class="section-title" id="about-title">About Me</h2>
             <article class="about-container">
                 <figure class="about-profile-pic" aria-hidden="true">
-                    <img src="dilip.jpg" alt="Profile picture of mister Dilip" role="img" aria-label="image of Dilip Pariyar">
                     </figure>
                 <div class="about-text">
                     <p>
@@ -837,7 +885,8 @@
         <section id="skills" class="content-section" aria-labelledby="skills-title">
             <h2 class="section-title" id="skills-title">My Skills</h2>
             <ul class="skills-list">
-                <li class="skill-item" data-skill-level="90"> <div class="skill-circle" role="img" aria-label="HTML proficiency: 90%">
+                <li class="skill-item"> 
+                    <div class="skill-circle" role="img" aria-label="HTML Skill">
                         <svg viewBox="0 0 100 100">
                             <circle class="progress-ring-bg" cx="50" cy="50" r="45" />
                             <circle class="progress-ring-fg" cx="50" cy="50" r="45" />
@@ -845,64 +894,72 @@
                     </div>
                     <span>HTML</span>
                 </li>
-                <li class="skill-item" data-skill-level="85">
-                    <div class="skill-circle" role="img" aria-label="CSS proficiency: 85%">
+                <li class="skill-item">
+                    <div class="skill-circle" role="img" aria-label="CSS Skill">
                         <svg viewBox="0 0 100 100">
-                             <circle class="progress-ring-bg" cx="50" cy="50" r="45" />
+                            <circle class="progress-ring-bg" cx="50" cy="50" r="45" />
                             <circle class="progress-ring-fg" cx="50" cy="50" r="45" />
                         </svg>
                     </div>
                     <span>CSS</span>
                 </li>
-                <li class="skill-item" data-skill-level="75">
-                    <div class="skill-circle" role="img" aria-label="JavaScript proficiency: 75%">
+                <li class="skill-item">
+                    <div class="skill-circle" role="img" aria-label="JavaScript Skill">
                         <svg viewBox="0 0 100 100">
-                             <circle class="progress-ring-bg" cx="50" cy="50" r="45" />
+                            <circle class="progress-ring-bg" cx="50" cy="50" r="45" />
                             <circle class="progress-ring-fg" cx="50" cy="50" r="45" />
                         </svg>
                     </div>
                     <span>JavaScript</span>
                 </li>
-                <li class="skill-item" data-skill-level="70">
-                     <div class="skill-circle" role="img" aria-label="Python proficiency: 70%">
+                <li class="skill-item"> <div class="skill-circle" role="img" aria-label="Python Skill">
                         <svg viewBox="0 0 100 100">
-                             <circle class="progress-ring-bg" cx="50" cy="50" r="45" />
+                            <circle class="progress-ring-bg" cx="50" cy="50" r="45" />
                             <circle class="progress-ring-fg" cx="50" cy="50" r="45" />
                         </svg>
                     </div>
                     <span>Python</span>
                 </li>
-                <li class="skill-item" data-skill-level="90">
-                    <div class="skill-circle" role="img" aria-label="SEO proficiency: 90%">
+                <li class="skill-item">
+                    <div class="skill-circle" role="img" aria-label="SEO Skill">
                         <svg viewBox="0 0 100 100">
-                             <circle class="progress-ring-bg" cx="50" cy="50" r="45" />
+                            <circle class="progress-ring-bg" cx="50" cy="50" r="45" />
                             <circle class="progress-ring-fg" cx="50" cy="50" r="45" />
                         </svg>
                     </div>
                     <span>SEO</span>
                 </li>
-                <li class="skill-item" data-skill-level="80">
-                    <div class="skill-circle" role="img" aria-label="Social Media Marketing proficiency: 80%">
-                        <svg viewBox="0 0 100 100">
-                             <circle class="progress-ring-bg" cx="50" cy="50" r="45" />
+                 <li class="skill-item">
+                    <div class="skill-circle" role="img" aria-label="Digital Marketing Skill"> <svg viewBox="0 0 100 100">
+                            <circle class="progress-ring-bg" cx="50" cy="50" r="45" />
                             <circle class="progress-ring-fg" cx="50" cy="50" r="45" />
                         </svg>
                     </div>
-                    <span>Social Media</span>
+                    <span>Digital Marketing</span>
                 </li>
             </ul>
         </section>
 
         <section id="experience" class="content-section" aria-labelledby="experience-title">
-            <h2 class="section-title" id="experience-title">Work Experience</h2>
+            <h2 class="section-title" id="experience-title">My Experience</h2>
             <div class="timeline">
                 <div class="timeline-item-wrapper">
-                    <article class="timeline-item">
+                    <article class="timeline-item" aria-labelledby="exp1-title">
                         <div class="timeline-dot" aria-hidden="true"></div>
                         <div class="timeline-content">
-                            <span class="timeline-date">Jan 2023 - May 2023</span>
-                            <h3>SEO Intern at XYZ Corp</h3>
-                            <p>5 months of hands-on experience optimizing websites for search engines, conducting keyword research, performing on-page and off-page SEO, and boosting organic rankings for client projects.</p>
+                            <span class="timeline-date">Jan 2024 - May 2024</span>
+                            <h3 id="exp1-title">SEO Intern</h3>
+                            <p>Contributed to optimizing website content and improving search engine rankings through keyword research, on-page SEO, and link building strategies.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="timeline-item-wrapper">
+                     <article class="timeline-item" aria-labelledby="exp2-title">
+                        <div class="timeline-dot" aria-hidden="true"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">2020 - 2023</span>
+                            <h3 id="exp2-title">Advance excel Training with NVDA</h3>
+                    <p>During my career preparation period, I volunteered my skills to mentor two individuals in Advanced Excel, guiding                     them from basic to                             advanced proficiency over a one-month period. This involved explaining key concepts such as conditional formatting, data validation, pivot tables, macros, and lookup functions, and adapting my approach to their learning needs. This experience honed my communication, explanation, and patience skills while reinforcing my own understanding of advanced Excel.</p>
                         </div>
                     </article>
                 </div>
@@ -912,125 +969,112 @@
         <section id="projects" class="content-section" aria-labelledby="projects-title">
             <h2 class="section-title" id="projects-title">My Projects</h2>
             <ul class="projects-list">
-                <li class="project-card">
-                    <figure class="project-image-placeholder" aria-label="Placeholder image for SEO Campaign project">
-                        <span>Project Image</span>
-                    </figure>
-                    <article>
-                        <h3>SEO Campaign for Local Business</h3>
-                        <p>Developed and executed a comprehensive SEO strategy for a local bakery, resulting in a 40% increase in website traffic and a 25% rise in online inquiries within 3 months.</p>
-                        <div class="project-links">
-                            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="View SEO Campaign case study (opens in new tab)"><i class="fas fa-link"></i> Case Study</a>
-                            </div>
-                    </article>
-                </li>
-                <li class="project-card">
-                     <figure class="project-image-placeholder" aria-label="Placeholder image for Portfolio Website project">
-                        <span>Project Image</span>
-                    </figure>
-                    <article>
-                        <h3>Personal Portfolio Website</h3>
-                        <p>Designed and coded this interactive personal portfolio from scratch using HTML5, CSS3, and modern JavaScript to showcase my skills and projects effectively.</p>
-                         <div class="project-links">
-                            <a href="https://github.com/yourusername/your-portfolio-repo" target="_blank" rel="noopener noreferrer" aria-label="View Portfolio source code on GitHub (opens in new tab)"><i class="fab fa-github"></i> GitHub</a>
+                <li class="project-card" aria-labelledby="proj1-title">
+                    <div class="project-image-placeholder" aria-hidden="true">Project Screenshot (Placeholder)</div>
+                    <h3 id="proj1-title">Portfolio Website</h3>
+                    <p>Designed and developed this personal portfolio website from scratch using HTML, CSS, and JavaScript to showcase my skills and projects. Focused on responsive design and accessibility.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/DilipPariyar" target="_blank" rel="noopener noreferrer" aria-label="View Portfolio Website source code on GitHub"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
                         </div>
-                    </article>
+                </li>
+                <li class="project-card" aria-labelledby="proj2-title">
+                    <div class="project-image-placeholder" aria-hidden="true">Project Screenshot (Placeholder)</div>
+                    <h3 id="proj2-title">E-commerce Digital Marketing Plan</h3>
+                    <p>Developed a comprehensive digital marketing strategy for an e-commerce venture as part of the Coursera certification. Included SEO, SEM, content marketing, and social media engagement plans.</p>
+                     <div class="project-links">
+                        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="View details of E-commerce Marketing Plan"><i class="fas fa-file-alt" aria-hidden="true"></i> View Details</a>
+                    </div>
                 </li>
                 </ul>
         </section>
     </main>
 
-    <footer id="contact-footer" class="main-footer" role="contentinfo">
+    <footer class="main-footer" id="contact-footer" role="contentinfo" aria-labelledby="footer-heading">
         <div class="footer-content">
+            <h2 id="footer-heading" class="section-title">Get In Touch</h2>
             <div class="resume-button-container">
                 <a href="Dilip_Resume.pdf" download="Dilip_Pariyar_Resume.pdf" class="resume-download-btn" aria-label="Download Dilip Pariyar's Resume">
-                    <i class="fas fa-download"></i> Download Resume
+                    <i class="fas fa-download" aria-hidden="true"></i> Download Resume
                 </a>
             </div>
-            <div class="social-icons" aria-label="Social media links">
-                <!--<a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Dilip Pariyar on Facebook"><i class="fab fa-facebook-f"></i></a>-->
-                 <!--<a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Dilip Pariyar on Instagram"><i class="fab fa-instagram"></i></a>-->
-                <!-- <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Dilip Pariyar on Twitter"><i class="fab fa-twitter"></i></a> -->
-                <a href="https://www.linkedin.com/in/dilip-pariyar" target="_blank" rel="noopener noreferrer" aria-label="Dilip Pariyar on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <!-- <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" aria-label="Dilip Pariyar on YouTube"><i class="fab fa-youtube"></i></a> -->
-                <a href="https://github.com/dilippariyar" target="_blank" rel="noopener noreferrer" aria-label="Dilip Pariyar on GitHub"><i class="fab fa-github"></i></a>
-                <a href="tel:+918657213745" aria-label="Call Dilip Pariyar"><i class="fas fa-phone"></i></a>
-                <a href="mailto:dilippariyar06@gmail.com" aria-label="Email Dilip Pariyar"><i class="fas fa-envelope"></i></a>
-            </div>
+            <ul class="social-icons" aria-label="Social media links">
+                <li><a href="mailto:dilipPariyar06@gmail.com" aria-label="Send an email to Dilip Pariyar"><i class="fas fa-envelope" aria-hidden="true"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/dilip-pariyar" target="_blank" rel="noopener noreferrer" aria-label="Dilip Pariyar's LinkedIn Profile"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                <li><a href="tel:+918657213745" aria-label="Call Dilip Pariyar"><i class="fas fa-phone" aria-hidden="true"></i></a></li>
+                <li><a href="https://github.com/dilippariyar" target="_blank" rel="noopener noreferrer" aria-label="Dilip Pariyar's GitHub Profile"><i class="fab fa-github" aria-hidden="true"></i></a></li>
+                </ul>
             <p class="copyright">&copy; <span id="currentYear"></span> Dilip Pariyar. All rights reserved.</p>
         </div>
     </footer>
 
-    <span class="visually-hidden" style="position:absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0,0,0,0); border:0;"></span>
-
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Particles.js Configuration
-            if (document.getElementById('particles-js')) {
-                particlesJS('particles-js', {
-                    particles: {
-                        number: { value: 80, density: { enable: true, value_area: 800 } }, // Reduced number
-                        color: { value: ['#00e6ff', '#ff00cc', '#ffffff'] }, // Added white
-                        shape: { type: 'circle' },
-                        opacity: { value: 0.4, random: true, anim: { enable: true, speed: 0.5, opacity_min: 0.1, sync: false } }, // Subtle animation
-                        size: { value: 2.5, random: true, anim: { enable: false } }, // Slightly smaller
-                        line_linked: { enable: true, distance: 130, color: '#ffffff', opacity: 0.25, width: 1 }, // More subtle lines
-                        move: { enable: true, speed: 3, direction: 'none', random: true, straight: false, out_mode: 'out' } // Slower speed
-                    },
-                    interactivity: {
-                        detect_on: 'canvas',
-                        events: { onhover: { enable: true, mode: 'grab' }, onclick: { enable: true, mode: 'push' } }, // Changed repulse to grab
-                        modes: { grab: { distance: 120, line_opacity: 0.5 }, push: { particles_nb: 3 } } // Adjusted grab distance
-                    },
-                    retina_detect: true
-                });
-            }
-
-            // Navigation Toggle for Mobile
+            // Mobile Navigation Toggle
             const navToggle = document.querySelector('.nav-toggle');
             const mainNav = document.querySelector('.main-nav');
-            if (navToggle && mainNav) {
+            const mainNavList = document.getElementById('mainNavList');
+
+            if (navToggle && mainNav && mainNavList) {
                 navToggle.addEventListener('click', () => {
-                    const isExpanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
-                    navToggle.setAttribute('aria-expanded', !isExpanded);
-                    mainNav.classList.toggle('active');
-                    // Toggle icon
-                    const icon = navToggle.querySelector('i');
-                    if (mainNav.classList.contains('active')) {
-                        icon.classList.remove('fa-bars');
-                        icon.classList.add('fa-times');
-                    } else {
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
+                    const isExpanded = mainNav.classList.toggle('active');
+                    navToggle.setAttribute('aria-expanded', isExpanded);
+                    if (isExpanded && mainNavList.querySelector('a')) {
+                        // Optional: focus first link on open for keyboard users
+                        // mainNavList.querySelector('a').focus(); 
                     }
                 });
-                // Close nav when a link is clicked
+
                 mainNav.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', () => {
+                    link.addEventListener('click', (e) => {
+                        // Close mobile menu when a link is clicked
                         if (mainNav.classList.contains('active')) {
-                            navToggle.setAttribute('aria-expanded', 'false');
                             mainNav.classList.remove('active');
-                            navToggle.querySelector('i').classList.remove('fa-times');
-                            navToggle.querySelector('i').classList.add('fa-bars');
+                            navToggle.setAttribute('aria-expanded', 'false');
+                        }
+                        // Smooth scroll for anchor links
+                        const targetId = link.getAttribute('href');
+                        if (targetId.startsWith('#')) {
+                            const targetElement = document.querySelector(targetId);
+                            if (targetElement) {
+                                // e.preventDefault(); // Keep default for history, html scroll-behavior handles smooth
+                                // Optional: manual smooth scroll if html scroll-behavior is not enough
+                                /*
+                                targetElement.scrollIntoView({
+                                    behavior: 'smooth'
+                                });
+                                */
+                            }
                         }
                     });
                 });
             }
-            
+
             // Active Navigation Link Highlighting
             const navLinks = document.querySelectorAll('.main-nav ul li a');
-            const sections = document.querySelectorAll('section[id]');
+            const sections = Array.from(document.querySelectorAll('section[id], footer[id="contact-footer"]')); // Include footer
 
             function changeNavActiveState() {
-                let currentSectionId = '';
+                let currentSectionId = 'intro'; // Default to intro
+                const scrollPosition = window.pageYOffset;
+                const windowHeight = window.innerHeight;
+                const docHeight = document.body.offsetHeight;
+
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
                     const sectionHeight = section.clientHeight;
-                    if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    // A section is considered active if its top is within a certain range of the viewport
+                    // Or if it takes up a significant portion of the viewport
+                    if (scrollPosition >= sectionTop - windowHeight * 0.4 && // section top is above bottom 40% of viewport
+                        scrollPosition < sectionTop + sectionHeight - windowHeight * 0.4) { // section bottom is below top 40% of viewport
                         currentSectionId = section.getAttribute('id');
                     }
                 });
+                
+                // Special case for footer: if scrolled to the very bottom
+                if ((windowHeight + scrollPosition) >= docHeight - 20) { // 20px buffer for footer
+                     currentSectionId = 'contact-footer';
+                }
+
 
                 navLinks.forEach(link => {
                     link.classList.remove('active');
@@ -1040,39 +1084,79 @@
                 });
             }
             window.addEventListener('scroll', changeNavActiveState);
-            changeNavActiveState(); // Initial check
-
+            changeNavActiveState(); // Initial check on load
 
             // Intersection Observer for Animations
-            const animatedElements = document.querySelectorAll('.content-section, .skill-item, .timeline-item-wrapper, .project-card');
-            const observer = new IntersectionObserver((entries, obs) => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            };
+
+            const elementObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('in-view');
-                        // For skill circles, trigger animation when in view
-                        if (entry.target.classList.contains('skill-item')) {
-                            const circleFg = entry.target.querySelector('.progress-ring-fg');
-                            const radius = circleFg.r.baseVal.value;
-                            const circumference = 2 * Math.PI * radius;
-                            const skillLevel = parseInt(entry.target.dataset.skillLevel) || 0;
-                            const offset = circumference - (skillLevel / 100) * circumference;
-                            circleFg.style.strokeDashoffset = offset;
+                        // For elements that should only animate once:
+                        if (entry.target.classList.contains('timeline-item-wrapper') || entry.target.classList.contains('skill-item')) {
+                           // observer.unobserve(entry.target); // Uncomment to animate only once
                         }
-                        // obs.unobserve(entry.target); // Optional: unobserve after animation
+                    } else {
+                        // Optional: remove 'in-view' to re-animate when scrolling back up
+                        // entry.target.classList.remove('in-view');
                     }
                 });
-            }, { threshold: 0.15 }); // Trigger when 15% of the element is visible
+            }, observerOptions);
 
-            animatedElements.forEach(el => {
-                observer.observe(el);
+            // Observe general content sections and timeline wrappers
+            document.querySelectorAll('.content-section, .timeline-item-wrapper').forEach(el => {
+                elementObserver.observe(el);
             });
             
-            // Update Copyright Year
-            const currentYearSpan = document.getElementById('currentYear');
-            if (currentYearSpan) {
-                currentYearSpan.textContent = new Date().getFullYear();
+            // Observe skill items for fade-in (no percentage animation)
+            document.querySelectorAll('.skill-item').forEach(el => {
+                // Initialize styles for fade-in if not already set by .content-section
+                if (!el.closest('.content-section')) { // Only if skill-item is not already handled by .content-section observation
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(30px)';
+                    el.style.transition = 'opacity 0.6s 0.2s ease-out, transform 0.6s 0.2s ease-out'; // Added small delay
+                }
+                elementObserver.observe(el);
+            });
+
+            // Set current year in footer
+            const yearSpan = document.getElementById('currentYear');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
             }
+
         });
+
+        // If you are using particles.js, you would initialize it here.
+        // Make sure to include the particles.js library script in your HTML or project.
+        /*
+        if (typeof particlesJS !== 'undefined') {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                    "color": { "value": "#00e6ff" }, // Example color
+                    "shape": { "type": "circle" },
+                    "opacity": { "value": 0.5, "random": true },
+                    "size": { "value": 3, "random": true },
+                    "line_linked": { "enable": true, "distance": 150, "color": "#00e6ff", "opacity": 0.4, "width": 1 },
+                    "move": { "enable": true, "speed": 2, "direction": "none", "random": true, "straight": false, "out_mode": "out" }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+                    "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } }, "push": { "particles_nb": 4 } }
+                },
+                "retina_detect": true
+            });
+        } else {
+            // console.warn('particles.js library not found. Skipping initialization.');
+        }
+        */
     </script>
-</body>
+    </body>
 </html>
