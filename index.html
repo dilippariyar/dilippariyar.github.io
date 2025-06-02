@@ -7,7 +7,7 @@
     
     <meta name="description" content="Dilip Pariyar's professional portfolio: Digital Marketing, Web Accessibility, SEO, and E-commerce expert. Explore my projects, skills, and experience.">
 
-    <meta name="keywords" content="Dilip Pariyar, Digital Marketing, Web Accessibility, WCAG, ARIA, SEO, E-commerce, Portfolio, Mumbai, India, Google Analytics, SEM, content marketing, social media marketing">
+    <meta name="keywords" content="Dilip Pariyar, Digital Marketing, Web Accessibility, WCAG, ARIA, SEO, E-commerce, Portfolio, Mumbai, India, Google Analytics, SEM, content marketing, social media marketing, freelancer">
 
     <meta name="author" content="Dilip Pariyar">
 
@@ -39,7 +39,8 @@
     <meta name="twitter:card" content="summary_large_image">
 
     <meta name="twitter:creator" content="@YourTwitterHandle"> 
-    <meta name="twitter:site" content="@YourTwitterHandle"> <meta name="twitter:image" content="https://dilippariyar.github.io/portfolio/dilip.jpg">
+    <meta name="twitter:site" content="@YourTwitterHandle"> 
+    <meta name="twitter:image" content="https://dilippariyar.github.io/portfolio/dilip.jpg">
 
     <meta name="twitter:title" content="Dilip Pariyar - Digital Marketing & Web Accessibility">
 
@@ -48,11 +49,10 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!--Open Graph image meta tag -->
-    <meta property="og:image" content="https://dilippariyar.github.io/portfolio/dilip.jpg">
-
+    
     <!-- Added schema tag for seo optimization for search engine result page -->
-    <script type="application/ld+json">
+    
+        <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
@@ -60,18 +60,20 @@
       "url": "https://dilippariyar.github.io/portfolio/",
       "image": "https://dilippariyar.github.io/portfolio/dilip.jpg",
       "sameAs": [
-        "https://www.linkedin.com/in/your-linkedin-profile-url",  "https://twitter.com/YourTwitterHandle",                 "https://github.com/dilippariyar"                        // Add more social media profiles, personal blog, etc., here if you have them
+        "http://www.linkedin.com/in/dilip-pariyar",  // Updated LinkedIn URL
+        "https://www.github.com/dilippariyar"        // Updated GitHub URL
+        // If you have a Twitter, personal blog, or other professional profiles, add them here.
       ],
-      "jobTitle": "Digital Marketing & Web Accessibility Professional",
+      "jobTitle": "Seeking Digital Marketing & Web Accessibility Opportunities", // Recommended if not currently working
       "worksFor": {
         "@type": "Organization",
-        "name": "Freelance / Self-Employed" // Or your current company's name if applicable
+        "name": "Self-Employed / Freelance" // Or omit if you prefer, or "Not Currently Employed"
       },
       "alumniOf": [
         {
           "@type": "EducationalOrganization",
           "name": "Shankar Narayan College",
-          "url": "https://example.com/shankar-narayan-college-url", // Optional: Add a URL to the college if available
+          "url": "https://sncollege.com"  //shankar-narayan-college-url", // Optional: Add a URL to the college if available
           "location": {
             "@type": "Place",
             "name": "Mumbai University, Mumbai, India"
@@ -85,10 +87,13 @@
       "knowsAbout": [
         "Digital Marketing",
         "Web Accessibility",
+        "WCAG 2.2",
+        "ARIA",
+        "HTML & CSS",
         "SEO",
         "Content Marketing",
         "Social Media Marketing",
-        "Google Analytics",
+        "Google Ads",
         "E-commerce",
         "Programming",
         "Advanced Excel"
@@ -97,10 +102,61 @@
         "@type": "Country",
         "name": "India"
       },
-      "gender": "https://schema.org/Male" // Or "https://schema.org/Female", "https://schema.org/NonBinary", or omit if preferred
+      "gender": "https://schema.org/Male", // Or "https://schema.org/Female", "https://schema.org/NonBinary", or omit if preferred
+      // Additional possible details:
+      "description": "A passionate digital marketing and web accessibility professional actively seeking new opportunities to apply my expertise.",
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Digital Marketing Specialist"
+      },
+      "birthPlace": {
+        "@type": "Place",
+        "name": "Mumbai, India" // Or your specific birth city/region
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "My Services",
+        "itemListElement": [
+          {
+            "@type": "OfferCatalog",
+            "name": "Digital Marketing Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "SEO Optimization"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Content Marketing"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Web Accessibility Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Accessibility Auditing"
+                }
+              }
+            ]
+          }
+        ]
+      }
     }
     </script>
-
+    
+    <!-- Added Internal CSS for styling --> 
+    
     <style>
         /* General Reset and Base Styles */
         * {
@@ -949,7 +1005,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="project.html">Projects</a></li>
                 <li><a href="#contact-footer">Contact</a></li>
             </ul>
         </nav>
@@ -1009,7 +1065,7 @@
                             <circle class="progress-ring-fg" cx="50" cy="50" r="45" />
                         </svg>
                     </div>
-                    <span>SEM</span>
+                    <span>Search Engine Marketing</span>
                 </li>
                 <li class="skill-item"> 
                     <div class="skill-circle" role="img" aria-label="Social Media  Marketing Skill">
@@ -1027,7 +1083,7 @@
                             <circle class="progress-ring-fg" cx="50" cy="50" r="45" />
                         </svg>
                     </div>
-                    <span>Web accessibility</span>
+                    <span>Web Accessibility</span>
                 </li>
                  <li class="skill-item">
                     <div class="skill-circle" role="img" aria-label="WCAG2.2 Skill"> <svg viewBox="0 0 100 100">
