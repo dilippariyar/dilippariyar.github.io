@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Services - Dilip Pariyar</title>
+    
+    <meta name="description" content="Explore the professional Digital Marketing and Web Accessibility services offered by Dilip Pariyar, including SEO, WCAG audits, and e-commerce solutions.">
+    <meta name="keywords" content="Dilip Pariyar, Digital Marketing Services, Web Accessibility Services, SEO, WCAG, ARIA, E-commerce, Freelance Services, Mumbai">
+    <meta name="author" content="Dilip Pariyar">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://dilippariyar.github.io/portfolio/services.html">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <meta property="og:title" content="Services - Digital Marketing & Web Accessibility | Dilip Pariyar">
+    <meta property="og:description" content="Offering expert services in SEO, Content Marketing, and Web Accessibility (WCAG & ARIA) to enhance your digital presence.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dilippariyar.github.io/portfolio/services.html">
+    <meta property="og:image" content="https://dilippariyar.github.io/portfolio/logo_og.png">
+    <meta property="og:site_name" content="Dilip Pariyar's Portfolio">
+    <meta property="og:locale" content="en_IN">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Services by Dilip Pariyar - Digital Marketing & Web Accessibility">
+    <meta name="twitter:description" content="Elevate your brand with specialized services in SEO and web accessibility.">
+    <meta name="twitter:image" content="https://dilippariyar.github.io/portfolio/logo_og.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* General Reset and Base Styles from index.html */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0d0d1a;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .visually-hidden {
+            position: absolute; width: 1px; height: 1px;
+            margin: -1px; padding: 0; overflow: hidden;
+            clip: rect(0, 0, 0, 0); border: 0;
+        }
+
+        /* Navigation from index.html */
+        .main-header {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(13, 13, 26, 0.85); backdrop-filter: blur(10px);
+            padding: 15px 20px; z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem; font-weight: bold;
+            color: #fff; text-decoration: none;
+        }
+        .main-nav {
+            display: flex;
+        }
+        .main-nav ul {
+            list-style: none; display: flex;
+            justify-content: center; gap: 25px;
+        }
+        .main-nav ul li a {
+            color: #fff; text-decoration: none;
+            font-size: 1rem; text-transform: uppercase;
+            position: relative; transition: color 0.3s ease;
+            padding: 5px 0;
+        }
+        .main-nav ul li a:hover, .main-nav ul li a.active {
+            color: #00e6ff;
+        }
+        .nav-toggle {
+            display: none; background: none; border: none;
+            color: #fff; font-size: 1.8rem; cursor: pointer; z-index: 1001;
+        }
+
+        /* Page-specific hero section */
+        .page-hero {
+            min-height: 60vh;
+            padding-top: 120px;
+            padding-bottom: 60px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background: linear-gradient(45deg, rgba(255, 0, 204, 0.1), rgba(0, 230, 255, 0.1));
+        }
+        #particles-js {
+            position: absolute; width: 100%; height: 100%;
+            z-index: -1; top: 0; left: 0;
+        }
+        .page-hero h1 {
+            font-size: 3.5rem; font-weight: 700;
+            background: linear-gradient(45deg, #00e6ff, #ff00cc);
+            -webkit-background-clip: text; background-clip: text;
+            color: transparent;
+            animation: textShine 3s infinite alternate;
+        }
+        @keyframes textShine {
+            from { filter: drop-shadow(0 0 8px #00e6ff); }
+            to { filter: drop-shadow(0 0 18px #ff00cc); }
+        }
+        .page-hero .subtitle {
+            font-size: 1.3rem; color: #d1d1d1;
+            margin: 20px 0 0; max-width: 800px;
+            animation: fadeSlideUp 1s ease-out 0.5s forwards;
+            opacity: 0;
+        }
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Services Section styling */
+        .content-section {
+            padding: 80px 20px; max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            font-size: 2.8rem; margin-bottom: 50px; text-align: center;
+            background: linear-gradient(45deg, #ff00cc, #00e6ff);
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background: rgba(255, 255, 255, 0.07); padding: 30px;
+            border-radius: 15px; transition: all 0.4s ease;
+            position: relative; overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 230, 255, 0.2);
+        }
+        .service-card-icon {
+            font-size: 3rem; color: #00e6ff;
+            margin-bottom: 20px;
+        }
+        .service-card h3 {
+            font-size: 1.5rem; color: #00e6ff; margin-bottom: 15px;
+        }
+        .service-card p {
+            color: #b0b0b0; font-size: 0.95rem; margin-bottom: 20px;
+        }
+        .service-card ul {
+            list-style-type: none; padding-left: 0; color: #c0c0c0;
+        }
+        .service-card ul li {
+            margin-bottom: 10px; display: flex; align-items: center;
+        }
+        .service-card ul li i {
+            color: #ff00cc; margin-right: 10px;
+        }
+        
+        /* Footer from index.html */
+        .main-footer {
+            padding: 50px 20px 30px; background: #12121f;
+            text-align: center; position: relative;
+        }
+        .social-icons {
+            list-style: none; padding: 0; display: flex;
+            justify-content: center; gap: 25px; margin-bottom: 20px;
+        }
+        .social-icons li a {
+            color: #fff; font-size: 1.8rem; transition: all 0.3s ease;
+        }
+        .social-icons li a:hover {
+            transform: scale(1.25); color: #00e6ff;
+        }
+        .copyright { font-size: 0.9rem; color: #aaa; }
+
+        /* Responsive Design from index.html */
+        @media (max-width: 768px) {
+            .nav-toggle { display: block; }
+            .main-nav {
+                position: absolute; top: 100%; left: 0; width: 100%;
+                background: rgba(13, 13, 26, 0.98);
+                flex-direction: column; align-items: center;
+                max-height: 0; overflow: hidden;
+                transition: max-height 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            }
+            .main-nav.active { max-height: 500px; padding: 20px 0; }
+            .main-nav ul { flex-direction: column; gap: 0; width: 100%; }
+            .main-nav ul li { width: 100%; text-align: center; }
+            .main-nav ul li a { display: block; padding: 15px 20px; }
+            
+            .page-hero h1 { font-size: 2.8rem; }
+            .page-hero .subtitle { font-size: 1.1rem; }
+            .section-title { font-size: 2.2rem; }
+        }
+        @media (max-width: 480px) {
+            .page-hero h1 { font-size: 2.2rem; }
+            .services-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header" role="banner">
+        <a href="index.html" class="logo" aria-label="Dilip Pariyar - Home">DP</a>
+        <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNavList">
+            <i class="fas fa-bars" aria-hidden="false"></i>
+        </button>
+        <nav class="main-nav" id="mainNav" role="navigation">
+            <ul id="mainNavList">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="course.html">Courses</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="accessibility.html">Accessibility</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="index.html#contact-footer">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main role="main">
+        <section class="page-hero" aria-labelledby="services-heading">
+            <div id="particles-js" aria-hidden="true"></div>
+            <h1 id="services-heading">My Professional Services</h1>
+            <p class="subtitle">Driving growth and inclusivity through specialized digital marketing and web accessibility solutions.</p>
+        </section>
+
+        <section class="content-section" aria-labelledby="services-list-title">
+            <h2 class="section-title" id="services-list-title">What I Offer</h2>
+            <div class="services-grid">
+                <article class="service-card" aria-labelledby="service1-title">
+                    <div class="service-card-icon" aria-hidden="true"><i class="fas fa-chart-line"></i></div>
+                    <h3 id="service1-title">Digital Marketing Strategy</h3>
+                    <p>Comprehensive strategies to boost your online visibility, from initial analysis to execution and reporting.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i>On-Page & Off-Page SEO</li>
+                        <li><i class="fas fa-check-circle"></i>Technical SEO Audits</li>
+                        <li><i class="fas fa-check-circle"></i>Content & Social Media Marketing</li>
+                        <li><i class="fas fa-check-circle"></i>Google Ads Campaign Management</li>
+                    </ul>
+                </article>
+
+                <article class="service-card" aria-labelledby="service2-title">
+                    <div class="service-card-icon" aria-hidden="true"><i class="fas fa-universal-access"></i></div>
+                    <h3 id="service2-title">Web Accessibility Consulting</h3>
+                    <p>Ensuring your website is usable by everyone, including people with disabilities, by adhering to global standards.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i>WCAG 2.2 Conformance Audits</li>
+                        <li><i class="fas fa-check-circle"></i>ARIA Implementation</li>
+                        <li><i class="fas fa-check-circle"></i>Assistive Technology Testing (NVDA)</li>
+                        <li><i class="fas fa-check-circle"></i>Accessibility Remediation Support</li>
+                    </ul>
+                </article>
+
+                <article class="service-card" aria-labelledby="service3-title">
+                    <div class="service-card-icon" aria-hidden="true"><i class="fab fa-github"></i></div>
+                    <h3 id="service3-title">E-commerce & Portfolio Sites</h3>
+                    <p>Building and optimizing accessible, high-performance websites for businesses and personal brands.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i>Responsive Web Design</li>
+                        <li><i class="fas fa-check-circle"></i>E-commerce SEO Integration</li>
+                        <li><i class="fas fa-check-circle"></i>GitHub Pages Deployment</li>
+                        <li><i class="fas fa-check-circle"></i>Performance Optimization</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer" id="contact-footer" role="contentinfo">
+        <div class="footer-content">
+            <ul class="social-icons" aria-label="Social media links">
+                <li><a href="mailto:dilipPariyar06@gmail.com" aria-label="Send an email to Dilip Pariyar"><i class="fas fa-envelope"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/dilip-pariyar" target="_blank" rel="noopener noreferrer" aria-label="Dilip Pariyar's LinkedIn Profile"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="tel:+918657213745" aria-label="Call Dilip Pariyar"><i class="fas fa-phone" aria-hidden="true"></i></a></li>
+                <li><a href="https://github.com/dilippariyar" target="_blank" rel="noopener noreferrer" aria-label="Dilip Pariyar's GitHub Profile"><i class="fab fa-github"></i></a></li>
+            </ul>
+            <p class="copyright">&copy; <span id="currentYear"></span> Dilip Pariyar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Navigation Toggle
+            const navToggle = document.querySelector('.nav-toggle');
+            const mainNav = document.querySelector('.main-nav');
+            if (navToggle && mainNav) {
+                navToggle.addEventListener('click', () => {
+                    const isExpanded = mainNav.classList.toggle('active');
+                    navToggle.setAttribute('aria-expanded', isExpanded);
+                });
+            }
+
+            // Set current year in footer
+            const yearSpan = document.getElementById('currentYear');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        // Initialize particles.js
+        if (typeof particlesJS !== 'undefined') {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {"value": 60, "density": {"enable": true, "value_area": 800}},
+                    "color": {"value": "#00e6ff"},
+                    "shape": {"type": "circle"},
+                    "opacity": {"value": 0.4, "random": true},
+                    "size": {"value": 3, "random": true},
+                    "line_linked": {"enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.1, "width": 1},
+                    "move": {"enable": true, "speed": 2, "direction": "none", "out_mode": "out"}
+                },
+                "interactivity": {
+                    "events": {"onhover": {"enable": true, "mode": "grab"}, "onclick": {"enable": false}},
+                    "modes": {"grab": {"distance": 140, "line_linked": {"opacity": 0.3}}}
+                },
+                "retina_detect": true
+            });
+        }
+    </script>
+</body>
+</html>
