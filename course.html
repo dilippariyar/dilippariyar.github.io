@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - Dilip Pariyar</title>
+
+    <meta name="description" content="Enroll in specialized courses by Dilip Pariyar on Web Accessibility (WCAG, ARIA), SEO, and using assistive technology like NVDA and TalkBack.">
+    <meta name="keywords" content="Dilip Pariyar, Web Accessibility Course, SEO Training, NVDA Course, TalkBack Course, HTML, CSS, Digital Marketing Training">
+    <meta name="author" content="Dilip Pariyar">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://dilippariyar.github.io/portfolio/course.html">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <meta property="og:title" content="Courses in Accessibility & SEO | Dilip Pariyar">
+    <meta property="og:description" content="Hands-on training courses designed to empower you with skills in web accessibility and modern digital marketing.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Courses by Dilip Pariyar - Learn Accessibility & SEO">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* General and Navigation styles copied from services.html */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background: #0d0d1a; color: #fff; line-height: 1.6; overflow-x: hidden; }
+        .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+        .main-header { position: fixed; top: 0; width: 100%; background: rgba(13, 13, 26, 0.85); backdrop-filter: blur(10px); padding: 15px 20px; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #fff; text-decoration: none; }
+        .nav-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.8rem; cursor: pointer; z-index: 1001; }
+        .main-nav { position: absolute; top: 100%; right: 0; width: 100%; background: rgba(13, 13, 26, 0.98); flex-direction: column; align-items: center; max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+        .main-nav.active { max-height: 500px; padding: 20px 0; }
+        .main-nav ul { list-style: none; display: flex; flex-direction: column; gap: 0; width: 100%; padding: 0; }
+        .main-nav ul li { width: 100%; text-align: center; }
+        .main-nav ul li a { color: #fff; text-decoration: none; font-size: 1rem; text-transform: uppercase; display: block; padding: 15px 20px; }
+        .main-nav ul li a:hover, .main-nav ul li a.active { color: #00e6ff; }
+        
+        /* Page Hero */
+        .page-hero { min-height: 60vh; padding: 120px 20px 60px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: linear-gradient(45deg, rgba(0, 230, 255, 0.1), rgba(255, 0, 204, 0.1)); position: relative; overflow: hidden; }
+        #particles-js { position: absolute; width: 100%; height: 100%; z-index: -1; top: 0; left: 0; }
+        .page-hero h1 { font-size: 3.5rem; font-weight: 700; background: linear-gradient(45deg, #00e6ff, #ff00cc); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .page-hero .subtitle { font-size: 1.3rem; color: #d1d1d1; margin-top: 20px; max-width: 800px; }
+        
+        /* Courses Section */
+        .content-section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+        .section-title { font-size: 2.8rem; margin-bottom: 50px; text-align: center; background: linear-gradient(45deg, #ff00cc, #00e6ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .course-card {
+            background: rgba(255, 255, 255, 0.07);
+            padding: 30px; border-radius: 15px; margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .course-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 230, 255, 0.15); }
+        .course-card h3 { font-size: 1.8rem; color: #00e6ff; margin-bottom: 10px; }
+        .course-card p { color: #b0b0b0; margin-bottom: 20px; }
+        .course-table { width: 100%; border-collapse: collapse; text-align: left; }
+        .course-table th, .course-table td { padding: 12px 15px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .course-table th { color: #00e6ff; }
+        .course-table td { color: #c0c0c0; }
+        
+        /* Footer */
+        .main-footer { padding: 50px 20px 30px; background: #12121f; text-align: center; }
+        .social-icons { list-style: none; padding: 0; display: flex; justify-content: center; gap: 25px; margin-bottom: 20px; }
+        .social-icons li a { color: #fff; font-size: 1.8rem; transition: all 0.3s ease; }
+        .social-icons li a:hover { transform: scale(1.25); color: #00e6ff; }
+        .copyright { font-size: 0.9rem; color: #aaa; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-toggle { display: block; }
+            .page-hero h1 { font-size: 2.8rem; }
+            .page-hero .subtitle { font-size: 1.1rem; }
+            .section-title { font-size: 2.2rem; }
+            .course-table { display: block; overflow-x: auto; } /* For small screens */
+        }
+        @media (max-width: 480px) {
+            .page-hero h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header" role="banner">
+        <a href="index.html" class="logo" aria-label="Dilip Pariyar - Home">DP</a>
+        <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNavList">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+        <nav class="main-nav" id="mainNav" role="navigation">
+            <ul id="mainNavList">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="course.html" class="active">Courses</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="accessibility.html">Accessibility</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="index.html#contact-footer">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main role="main">
+        <section class="page-hero" aria-labelledby="courses-heading">
+            <div id="particles-js" aria-hidden="true"></div>
+            <h1 id="courses-heading">Training Courses</h1>
+            <p class="subtitle">Gain practical, in-demand skills with personalized training in digital marketing and accessibility.</p>
+        </section>
+
+        <section class="content-section" aria-labelledby="courses-list-title">
+            <h2 class="section-title" id="courses-list-title">Available Courses</h2>
+            
+            <article class="course-card" aria-labelledby="course1-title">
+                <h3 id="course1-title">Web Accessibility Fundamentals</h3>
+                <p>Learn to build inclusive websites that are usable by people with disabilities, focusing on semantic HTML, ARIA, and WCAG principles.</p>
+                <table class="course-table">
+                    <thead><tr><th>Topic</th><th>Duration</th><th>Mode</th></tr></thead>
+                    <tbody><tr><td>HTML5 Semantics & ARIA</td><td>2 Weeks</td><td>Online (Google Meet)</td></tr></tbody>
+                </table>
+            </article>
+
+            <article class="course-card" aria-labelledby="course2-title">
+                <h3 id="course2-title">SEO and Content Strategy</h3>
+                <p>Master the art of search engine optimization, from keyword research and on-page techniques to technical SEO and content marketing.</p>
+                <table class="course-table">
+                    <thead><tr><th>Topic</th><th>Duration</th><th>Mode</th></tr></thead>
+                    <tbody><tr><td>Comprehensive SEO</td><td>3 Weeks</td><td>Online (Google Meet)</td></tr></tbody>
+                </table>
+            </article>
+
+            <article class="course-card" aria-labelledby="course3-title">
+                <h3 id="course3-title">Assistive Technology Proficiency</h3>
+                <p>Designed for users who are blind or have low vision, this course covers efficient use of NVDA with MS Office and TalkBack on Android.</p>
+                <table class="course-table">
+                    <thead><tr><th>Topic</th><th>Duration</th><th>Mode</th></tr></thead>
+                    <tbody>
+                        <tr><td>MS Office with NVDA</td><td>4 Weeks</td><td>Online (Google Meet)</td></tr>
+                        <tr><td>Android with TalkBack</td><td>2 Weeks</td><td>Online (Google Meet)</td></tr>
+                    </tbody>
+                </table>
+            </article>
+        </section>
+    </main>
+
+    <footer class="main-footer" id="contact-footer" role="contentinfo">
+        <div class="footer-content">
+             <ul class="social-icons" aria-label="Social media links">
+                <li><a href="mailto:dilipPariyar06@gmail.com" aria-label="Email Dilip Pariyar"><i class="fas fa-envelope"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/dilip-pariyar" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="https://github.com/dilippariyar" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"><i class="fab fa-github"></i></a></li>
+            </ul>
+            <p class="copyright">&copy; <span id="currentYear"></span> Dilip Pariyar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navToggle = document.querySelector('.nav-toggle');
+            const mainNav = document.querySelector('.main-nav');
+            if (navToggle && mainNav) {
+                navToggle.addEventListener('click', () => {
+                    const isExpanded = mainNav.classList.toggle('active');
+                    navToggle.setAttribute('aria-expanded', isExpanded);
+                });
+            }
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        if (typeof particlesJS !== 'undefined') {
+            particlesJS('particles-js', {"particles":{"number":{"value":60,"density":{"enable":true,"value_area":800}},"color":{"value":"#00e6ff"},"opacity":{"value":0.4,"random":true},"size":{"value":3,"random":true},"line_linked":{"enable":true,"distance":150,"color":"#ffffff","opacity":0.1,"width":1},"move":{"enable":true,"speed":2,"direction":"none","out_mode":"out"}}});
+        }
+    </script>
+</body>
+</html>
