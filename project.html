@@ -19,10 +19,40 @@
         canvas {
             border: 1px solid #ffffff20; /* Subtle border */
         }
+
+        /* CSS to visually hide elements but keep them accessible to screen readers */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+            white-space: nowrap; /* Prevents text from wrapping */
+        }    
     </style>
 </head>
 <body>
-    <canvas id="canvas"></canvas>
+        <!--
+        This div contains content specifically for screen reader users.
+        The 'visually-hidden' class ensures it is not displayed to sighted users,
+        but it remains fully available in the accessibility tree for screen readers.
+        It's crucial to provide alternative text or instructions when using canvas,
+        as canvas content itself is not directly accessible to screen readers.
+    -->
+    <div class="visually-hidden">
+        <p>
+            Description: This page features interactive visual content rendered on a canvas.
+            It does not contain traditional HTML elements for navigation or information.
+            For a more accessible experience or to explore other parts of the website,
+            please navigate back to the <a href="index.html">home page</a>.
+        </p>
+    </div>
+    
+    <!--Canvas element for visual interactive content-->
+    <canvas id="canvas" aria-label="Interactive visual content"></canvas>
     <script>
         // Get canvas and context
         const canvas = document.getElementById('canvas');
