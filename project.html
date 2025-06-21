@@ -32,9 +32,110 @@
             border: 0;
             white-space: nowrap; /* Prevents text from wrapping */
         }    
+
+    /* --- Navigation Toggle Button (Hamburger) --- */
+        .menu-toggle {
+            position: fixed; /* Fixed position so it stays on screen when scrolling */
+            top: 20px;       /* Distance from the top */
+            right: 20px;     /* Distance from the right */
+            background: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+            border: none;
+            color: #fff;
+            font-size: 1.8rem; /* Size of the hamburger icon */
+            padding: 10px 12px; /* Padding around the icon */
+            border-radius: 0.5rem; /* Rounded corners */
+            cursor: pointer;
+            z-index: 1001; /* Ensure it's above other content */
+            transition: background 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu-toggle:hover {
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        /* --- Main Navigation Menu --- */
+        .canvas-main-nav {
+            position: fixed; /* Fixed position for the overlay menu */
+            top: 0;
+            right: 0;
+            width: 250px; /* Width of the menu when open */
+            height: 100%; /* Full height of the viewport */
+            background: #2d3748; /* Background color of the menu */
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3); /* Shadow on the left edge */
+            transform: translateX(100%); /* Initially hide the menu off-screen to the right */
+            transition: transform 0.3s ease-out; /* Smooth slide-in/out transition */
+            z-index: 1000; /* Below the toggle button but above main content */
+            padding-top: 80px; /* Space for the toggle button at the top */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .canvas-main-nav.active {
+            transform: translateX(0); /* Slide the menu into view */
+        }
+
+        .canvas-main-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .canvas-main-nav ul li {
+            text-align: center;
+            margin-bottom: 10px; /* Space between links */
+        }
+
+        .canvas-main-nav ul li a {
+            display: block; /* Make the whole area clickable */
+            padding: 15px 20px;
+            color: #e2e8f0; /* Link text color */
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            border-radius: 0.25rem; /* Slight rounded corners for links */
+        }
+
+        .canvas-main-nav ul li a:hover,
+        .canvas-main-nav ul li a.active {
+            background-color: #4a5568; /* Background on hover/active */
+            color: #63b3ed; /* Text color on hover/active */
+        }
+
+        /* Optional: Basic Canvas Styling */
+        .my-canvas {
+            border: 2px solid #0f0;
+            background-color: #333;
+            display: block;
+            margin: 100px auto 20px; /* Adjust margin to accommodate fixed header */
+            max-width: 90%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
+<!--
+        HTML structure for the expandable navigation.
+        Place this inside your <body> tag, ideally early.
+    -->
+    <!-- Navigation Toggle Button (Hamburger Icon) -->
+    <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNavigation">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+    </button>
+
+    <!-- Main Navigation Menu -->
+    <nav class="canvas-main-nav" id="mainNavigation" role="navigation" aria-labelledby="canvas-nav-label">
+        <span id="canvas-nav-label" class="visually-hidden">Site Navigation</span>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    
         <!--
         This div contains content specifically for screen reader users.
         The 'visually-hidden' class ensures it is not displayed to sighted users,
@@ -54,6 +155,57 @@
     <!--Canvas element for visual interactive content-->
     <canvas id="canvas" aria-label="Interactive visual content"></canvas>
     <script>
+        // JavaScript to handle the menu toggle functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mainNavigation = document.getElementById('mainNavigation');
+
+            if (menuToggle && mainNavigation) {
+                menuToggle.addEventListener('click', () => {
+                    // Toggle the 'active' class on the navigation menu
+                    const isActive = mainNavigation.classList.toggle('active');
+                    // Update aria-expanded attribute for accessibility
+                    menuToggle.setAttribute('aria-expanded', isActive);
+                });
+            }
+
+            // Optional: Close menu if a link inside is clicked (for single-page navigation)
+            mainNavigation.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mainNavigation.classList.contains('active')) {
+                        mainNavigation.classList.remove('active');
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+
+            // Optional: Close menu if user clicks outside of it (helpful for UX)
+            document.addEventListener('click', (event) => {
+                const isClickInsideNav = mainNavigation.contains(event.target);
+                const isClickOnToggle = menuToggle.contains(event.target);
+
+                if (!isClickInsideNav && !isClickOnToggle && mainNavigation.classList.contains('active')) {
+                    mainNavigation.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+
+        // Example Canvas drawing
+        const canvasElement = document.querySelector('.my-canvas');
+        if (canvasElement) {
+            const ctx = canvasElement.getContext('2d');
+            ctx.fillStyle = '#63b3ed'; // Blue
+            ctx.fillRect(0, 0, canvasElement.width, canvasElement.height);
+            ctx.fillStyle = 'white';
+            ctx.font = '30px Inter, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('Your Interactive Canvas', canvasElement.width / 2, canvasElement.height / 2 - 20);
+            ctx.font = '18px Inter, sans-serif';
+            ctx.fillText('Click the menu icon top-right!', canvasElement.width / 2, canvasElement.height / 2 + 20);
+        }
+        //This section is for interactive canvas 
         // Get canvas and context
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
