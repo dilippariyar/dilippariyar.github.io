@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Dilip Pariyar</title>
+    <!-- Head content is similar to case-studies.html -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Shared base, header, nav, hero, and footer styles from case-studies.html */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background: #0d0d1a; color: #fff; line-height: 1.7; overflow-x: hidden; }
+        .main-header { position: fixed; top: 0; width: 100%; background: rgba(13, 13, 26, 0.85); backdrop-filter: blur(10px); padding: 15px 25px; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #fff; text-decoration: none; }
+        .nav-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.8rem; cursor: pointer; z-index: 1001; }
+        .main-nav { display: flex; }
+        .main-nav ul { list-style: none; display: flex; gap: 25px; }
+        .main-nav ul li a { color: #fff; text-decoration: none; font-size: 1rem; text-transform: uppercase; padding: 5px 0; position: relative; }
+        .page-hero { padding: 140px 20px 80px; text-align: center; background: #0d0d1a; position: relative; }
+        #particles-js { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 0; }
+        .hero-content { position: relative; z-index: 1; }
+        .page-hero h1 { font-size: 3.5rem; background: linear-gradient(45deg, #00e6ff, #9f00ff); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 15px; }
+        .page-hero .subtitle { font-size: 1.3rem; color: #c0c0c0; max-width: 700px; margin: 0 auto; }
+        .main-footer { padding: 60px 20px 30px; background: #12121f; text-align: center; }
+        .footer-title { font-size: 2.5rem; color: #fff; margin-bottom: 30px; }
+        .social-icons { list-style: none; padding: 0; display: flex; justify-content: center; gap: 25px; margin-bottom: 30px; }
+        .social-icons li a { color: #fff; font-size: 1.8rem; transition: all 0.3s ease; }
+        .copyright { font-size: 0.9rem; color: #aaa; }
+        
+        /* Blog Listing Specific Styles */
+        .blog-listing { padding: 80px 20px; max-width: 900px; margin: 0 auto; }
+        .blog-post-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px; margin-bottom: 40px; padding: 35px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .blog-post-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 15px 30px rgba(0, 230, 255, 0.1); }
+        .blog-post-title a { font-size: 1.8rem; color: #00e6ff; text-decoration: none; transition: color 0.3s; }
+        .blog-post-title a:hover { color: #ff00cc; }
+        .blog-post-meta { font-size: 0.9rem; color: #888; margin: 10px 0 15px; }
+        .blog-post-excerpt { color: #b0b0b0; margin-bottom: 20px; }
+        .read-more-btn {
+            color: #0d0d1a; background: #00e6ff; text-decoration: none; padding: 10px 25px;
+            border-radius: 50px; font-weight: 600; display: inline-block;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .read-more-btn:hover { background: #fff; transform: scale(1.05); }
+
+        @media (max-width: 768px) {
+            .nav-toggle { display: block; }
+            .main-nav {
+                position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
+                background: rgba(18, 18, 31, 0.98); backdrop-filter: blur(15px);
+                flex-direction: column; justify-content: center; align-items: center;
+                transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+            }
+            .main-nav.active { right: 0; }
+            .main-nav ul { flex-direction: column; }
+            .page-hero h1 { font-size: 2.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header" role="banner">
+        <!-- Header content from case-studies.html -->
+        <a href="index.html" class="logo" aria-label="Dilip Pariyar - Home">DP</a>
+        <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNav">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav class="main-nav" id="mainNav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">My Services</a></li>
+                <li><a href="courses.html">My Courses</a></li>
+                <li><a href="case-studies.html">My Case Studies</a></li>
+                <li><a href="blog.html" class="active">My Blog</a></li>
+                <li><a href="index.html#contact-footer">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main role="main">
+        <section class="page-hero" aria-labelledby="blog-heading">
+            <div id="particles-js" aria-hidden="true"></div>
+            <div class="hero-content">
+                <h1 id="blog-heading">My Blog</h1>
+                <p class="subtitle">Insights and In-depth Guides on SEO, Accessibility, and the Digital World</p>
+            </div>
+        </section>
+
+        <div class="blog-listing" aria-label="List of blog posts">
+            <article class="blog-post-card" aria-labelledby="blog1-title">
+                <h3 class="blog-post-title" id="blog1-title">
+                    <a href="blog/understanding-seo.html">Decoding SEO: A Comprehensive Guide to On-Page, Off-Page, and Technical SEO</a>
+                </h3>
+                <p class="blog-post-meta">Published on June 21, 2025</p>
+                <p class="blog-post-excerpt">Search Engine Optimization is the bedrock of digital visibility. This guide breaks down the three pillars of SEO—On-Page, Off-Page, and Technical—into actionable strategies you can use to climb the search rankings.</p>
+                <a href="blog/understanding-seo.html" class="read-more-btn" aria-label="Read more about Decoding SEO">Read More <i class="fas fa-arrow-right"></i></a>
+            </article>
+
+            <article class="blog-post-card" aria-labelledby="blog2-title">
+                <h3 class="blog-post-title" id="blog2-title">
+                    <a href="blog/web-accessibility-importance.html">The Digital Curb-Cut: Why Web Accessibility is a Non-Negotiable</a>
+                </h3>
+                <p class="blog-post-meta">Published on June 21, 2025</p>
+                <p class="blog-post-excerpt">Accessibility isn't just a feature or a compliance checkbox; it's a fundamental human right in the digital age. Discover the ethical, legal, and business cases for creating a web that works for everyone.</p>
+                <a href="blog/web-accessibility-importance.html" class="read-more-btn" aria-label="Read more about The Importance of Web Accessibility">Read More <i class="fas fa-arrow-right"></i></a>
+            </article>
+
+            <article class="blog-post-card" aria-labelledby="blog3-title">
+                <h3 class="blog-post-title" id="blog3-title">
+                    <a href="blog/deep-dive-aria.html">A Deep Dive into ARIA: Bridging the Gap for Web Accessibility</a>
+                </h3>
+                <p class="blog-post-meta">Published on June 21, 2025</p>
+                <p class="blog-post-excerpt">When semantic HTML isn't enough, Accessible Rich Internet Applications (ARIA) comes to the rescue. This post demystifies ARIA roles, states, and properties, providing practical examples for developers.</p>
+                <a href="blog/deep-dive-aria.html" class="read-more-btn" aria-label="Read more about A Deep Dive into ARIA">Read More <i class="fas fa-arrow-right"></i></a>
+            </article>
+        </div>
+    </main>
+    
+    <footer class="main-footer" id="contact-footer" role="contentinfo">
+        <h2 class="footer-title">Get In Touch</h2>
+        <ul class="social-icons" aria-label="Social media links">
+            <li><a href="mailto:dilippariyar06@gmail.com" aria-label="Email Dilip Pariyar"><i class="fas fa-envelope"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/dilip-pariyar" target="_blank" rel="noopener noreferrer" aria-label="Dilip Pariyar's LinkedIn Profile"><i class="fab fa-linkedin"></i></a></li>
+        </ul>
+        <p class="copyright">&copy; <span id="currentYear">2025</span> Dilip Pariyar. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JS from case-studies.html
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        // particles.js config
+    </script>
+</body>
+</html>
