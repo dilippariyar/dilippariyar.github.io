@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ultimate Guide to Search Engine Optimization (SEO) - Dilip Pariyar</title>
+
+    <meta name="description" content="An extremely detailed guide to SEO, covering On-Page, Off-Page, and Technical SEO, plus the essential tools you need for success in 2025.">
+    <meta name="keywords" content="SEO, Search Engine Optimization, On-Page SEO, Off-Page SEO, Technical SEO, E-E-A-T, Core Web Vitals, Backlinks, Local SEO, SEO Tools">
+    <meta name="author" content="Dilip Pariyar">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dilippariyar.github.io/portfolio/blog/understanding-seo.html">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <meta property="og:title" content="The Ultimate Guide to Search Engine Optimization (SEO)">
+    <meta property="og:description" content="Master SEO with this comprehensive guide covering the three pillars: On-Page, Off-Page, and Technical SEO.">
+    <meta property="og:image" content="https://dilippariyar.github.io/portfolio/images/logo_og.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* Base, Header, Nav, Footer, and general article styles are the same as the previous blog pages */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background: #0d0d1a; color: #fff; line-height: 1.8; overflow-x: hidden; }
+
+        .main-header { position: fixed; top: 0; width: 100%; background: rgba(13, 13, 26, 0.85); backdrop-filter: blur(10px); padding: 15px 25px; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #fff; text-decoration: none; }
+        .nav-toggle { background: none; border: none; color: #fff; font-size: 1.8rem; cursor: pointer; z-index: 1002; position: relative; width: 30px; height: 30px; }
+        .nav-toggle .fa-bars, .nav-toggle .fa-times { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out; }
+        .nav-toggle .fa-times { opacity: 0; transform: translate(-50%, -50%) rotate(-90deg); }
+        .nav-toggle.active .fa-bars { opacity: 0; transform: translate(-50%, -50%) rotate(90deg); }
+        .nav-toggle.active .fa-times { opacity: 1; transform: translate(-50%, -50%) rotate(0); }
+        .main-nav { position: fixed; top: 0; right: -100%; width: 300px; height: 100vh; background: rgba(18, 18, 31, 0.98); backdrop-filter: blur(15px); display: flex; flex-direction: column; justify-content: center; align-items: center; transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1); z-index: 1001; }
+        .main-nav.active { right: 0; }
+        .main-nav ul { list-style: none; padding: 0; width: 100%; text-align: center; }
+        .main-nav ul li a { color: #fff; text-decoration: none; font-size: 1.2rem; text-transform: uppercase; display: block; padding: 20px; transition: background 0.3s, color 0.3s; }
+
+        .blog-content-container { max-width: 800px; margin: 0 auto; padding: 140px 20px 80px; }
+        .blog-article-title { font-size: 2.8rem; line-height: 1.2; background: linear-gradient(45deg, #00e6ff, #ff00cc); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 15px; }
+        .blog-meta { color: #888; margin-bottom: 40px; font-size: 0.9rem; }
+        .blog-article h2 { font-size: 2.2rem; color: #00e6ff; margin-top: 50px; margin-bottom: 25px; border-bottom: 2px solid rgba(0, 230, 255, 0.2); padding-bottom: 10px; }
+        .blog-article h3 { font-size: 1.6rem; color: #ff00cc; margin-top: 35px; margin-bottom: 20px; }
+        .blog-article p, .blog-article li { color: #c0c0c0; margin-bottom: 20px; }
+        .blog-article ul { list-style: none; padding-left: 0; }
+        .blog-article li { display: flex; align-items: flex-start; }
+        .blog-article li i { color: #00e6ff; margin-right: 15px; margin-top: 7px; font-size: 0.9rem; }
+        .blog-article strong { color: #fff; font-weight: 600; }
+        .blog-article code { background-color: rgba(255, 255, 255, 0.1); color: #ff00cc; padding: 2px 6px; border-radius: 4px; font-family: 'Fira Code', monospace; font-size: 0.95em; }
+        .back-to-blog { display: inline-block; margin-top: 40px; color: #0d0d1a; background: #00e6ff; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: background 0.3s, transform 0.3s; }
+
+        .main-footer { padding: 60px 20px 30px; background: #12121f; text-align: center; }
+        .footer-title { font-size: 2.5rem; color: #fff; margin-bottom: 30px; }
+        .social-icons { list-style: none; padding: 0; display: flex; justify-content: center; gap: 25px; margin-bottom: 30px; }
+        .social-icons li a { color: #fff; font-size: 1.8rem; transition: all 0.3s ease; }
+        .copyright { font-size: 0.9rem; color: #aaa; }
+    </style>
+</head>
+<body>
+    <header class="main-header" role="banner">
+        <a href="../index.html" class="logo" aria-label="Dilip Pariyar - Home">DP</a>
+        <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNav">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-times"></i>
+        </button>
+        <nav class="main-nav" id="mainNav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../services.html">Services</a></li>
+                <li><a href="../courses.html">Courses</a></li>
+                <li><a href="../case-studies.html">Case Studies</a></li>
+                <li><a href="../blog.html" class="active">Blog</a></li>
+                <li><a href="../index.html#contact-footer">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="blog-content-container">
+            <article class="blog-article" aria-labelledby="blog-title">
+                <header>
+                    <h1 id="blog-title" class="blog-article-title">The Ultimate Guide to Search Engine Optimization (SEO)</h1>
+                    <p class="blog-meta">By Dilip Pariyar | Published on June 25, 2025</p>
+                </header>
+                
+                <section aria-labelledby="intro-heading">
+                    <h2 id="intro-heading">What is SEO and Why Does It Matter?</h2>
+                    <p>Search Engine Optimization (SEO) is the practice of increasing the quantity and quality of traffic to your website through organic search engine results. It's not about paying for ads; it's about earning your spot at the top. When users search for topics related to your business, you want to be the first answer they see. Good SEO builds trust, credibility, and brand authority, making it one of the most powerful and sustainable forms of digital marketing.</p>
+                    
+                    <h3>The Three Pillars of SEO</h3>
+                    <p>A successful SEO strategy is built upon three core pillars. While we will discuss other areas like Local and Content SEO, they are all built from these fundamental components. Think of it like building a house: you need a strong foundation, well-constructed walls, and a good reputation in the neighborhood.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Technical SEO (The Foundation):</strong> Ensures your website can be efficiently crawled and indexed by search engines.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div><strong>On-Page SEO (The Walls & Content):</strong> Involves the content and structure of your website itself.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Off-Page SEO (The Reputation):</strong> Refers to actions taken outside of your own website to build its authority.</div></li>
+                    </ul>
+                </section>
+
+                <section aria-labelledby="how-search-works-heading">
+                    <h2 id="how-search-works-heading">How Search Engines Work: Crawling, Indexing, and Ranking</h2>
+                    <p>To master SEO, you must first understand the basic process search engines like Google use to find, understand, and organize content. It's a three-step process:</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Crawling:</strong> Search engines use automated bots (known as crawlers or spiders) to discover new and updated pages on the internet. These bots follow links from page to page to explore the web.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Indexing:</strong> After crawling, the content of these pages is analyzed and stored in a massive database called an index. This index is essentially a giant library of all the web pages the search engine knows about.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Ranking:</strong> When a user performs a search, the search engine sifts through its index to find the most relevant and high-quality results. It then ranks these results using a complex algorithm with hundreds of factors to provide the best possible answer to the user's query.</div></li>
+                    </ul>
+                </section>
+                
+                <section aria-labelledby="onpage-seo-heading">
+                    <h2 id="onpage-seo-heading">On-Page SEO: Optimizing Your Content & Code</h2>
+                    <p>On-Page SEO involves optimizing the elements on your website itself—the content and HTML source code. This is where you have the most direct control.</p>
+                    
+                    <h3>Keyword Research and Search Intent</h3>
+                    <p>This is the absolute foundation of any SEO campaign. It's the process of identifying the words and phrases your target audience uses and understanding what they hope to find.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Keyword Discovery:</strong> Use tools like Google Keyword Planner to find terms with reasonable search volume and achievable ranking difficulty.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Search Intent Analysis:</strong> You must understand what the user wants. Are they looking to buy (<strong>Transactional</strong>), learn (<strong>Informational</strong>), or find a specific website (<strong>Navigational</strong>)? Your content must align perfectly with this intent.</div></li>
+                    </ul>
+
+                    <h3>Content Quality & E-E-A-T</h3>
+                    <p>Google's algorithms are designed to reward high-quality content that is helpful to users. This is largely defined by the E-E-A-T framework:</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Experience:</strong> Is the content created by someone with real, first-hand experience on the topic? For example, a product review written by someone who has actually used the product.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Expertise:</strong> Does the author possess expert-level knowledge in the field? This is critical for medical, financial, or legal topics (known as "Your Money or Your Life" or YMYL pages).</div></li>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Authoritativeness:</strong> Is the site or author a recognized authority on the subject? This is boosted by off-page signals like backlinks and brand mentions from other authoritative sources.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Trustworthiness:</strong> Can users trust the information on your site? This includes having clear contact information, secure HTTPS, transparent authorship, and citing reputable sources.</div></li>
+                    </ul>
+
+                    <h3>HTML Element Optimization</h3>
+                    <p>Proper use of HTML elements gives crucial context to search engines about your content's structure and importance.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Title Tags (<code>&lt;title&gt;</code>):</strong> A powerful ranking signal. It should be unique for every page, be around 50-60 characters, and include your primary keyword, preferably near the beginning.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Meta Descriptions:</strong> While not a direct ranking factor, a compelling meta description (around 155 characters) acts as ad copy in the search results, increasing your click-through rate (CTR).</div></li>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Header Tags (<code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code>):</strong> Use a single <code>&lt;h1&gt;</code> for your main page title. Use <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, etc., to create a logical hierarchy for your subheadings. This helps both users and search engines understand your content structure.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Image Alt Text:</strong> The <code>alt</code> attribute on an <code>&lt;img&gt;</code> tag describes the image. It's essential for accessibility and helps search engines understand image content, allowing it to rank in image search.</div></li>
+                    </ul>
+
+                    <h3>URL Optimization</h3>
+                    <p>A well-structured URL is easy for both humans and search engines to understand. A clean, descriptive URL provides clues about the page's content. Best practices include keeping URLs short, using hyphens to separate words, and including your primary keyword where it makes sense. This not only helps with ranking but also improves user experience and shareability.</p>
+                    
+                    <h3>Internal Linking</h3>
+                    <p>Internal links connect one page on your website to another. A strong internal linking strategy helps search engines discover your pages, understand the relationship between them, and spread link equity (ranking power) throughout your site.</p>
+                </section>
+
+                <section aria-labelledby="technical-seo-heading">
+                    <h2 id="technical-seo-heading">Technical SEO: The Website's Foundation</h2>
+                    <p>Technical SEO ensures that search engines can effectively find, crawl, index, and understand your website. A poor technical foundation can undermine all your other efforts.</p>
+
+                    <h3>Crawlability and Indexability</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i><div><strong>XML Sitemap:</strong> This is a file (e.g., <code>sitemap.xml</code>) that lists all your important pages, acting as a roadmap for search engines to ensure they discover all your content.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Robots.txt:</strong> This file tells search engine crawlers which pages or sections of your site they should <em>not</em> crawl (e.g., admin pages, user carts, or duplicate content).</div></li>
+                    </ul>
+
+                    <h3>Site Speed and Core Web Vitals</h3>
+                    <p>Page speed is a confirmed ranking factor. Google uses a set of metrics called Core Web Vitals to measure the real-world user experience of a page.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Largest Contentful Paint (LCP):</strong> Measures loading performance. Aim for under 2.5 seconds.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div><strong>First Input Delay (FID) / Interaction to Next Paint (INP):</strong> Measures interactivity and responsiveness.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Cumulative Layout Shift (CLS):</strong> Measures visual stability. Aim for a score less than 0.1.</div></li>
+                    </ul>
+
+                    <h3>Secure & Accessible Site Architecture</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i><div><strong>HTTPS:</strong> Your site must be secure. Using HTTPS is a small but important ranking signal and is crucial for user trust.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Mobile-Friendliness:</strong> With Google's mobile-first indexing, your site must be fully responsive and provide an excellent experience on all devices. This is non-negotiable.</div></li>
+                    </ul>
+
+                    <h3>Structured Data (Schema Markup)</h3>
+                    <p>This is code you add to your site to help search engines understand your content in more detail. It can lead to "rich snippets" in search results (like star ratings, FAQs, or event dates), which can dramatically improve your visibility and CTR.</p>
+                    
+                    <h3>Meta Tags for Social Sharing</h3>
+                    <p>When your content is shared on social media, you want it to look great. These meta tags control the title, description, and image that appear in social media feeds, encouraging more clicks.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Open Graph (for Facebook, LinkedIn, etc.):</strong> Uses properties like <code>og:title</code>, <code>og:description</code>, <code>og:image</code>, and <code>og:url</code> to create rich object previews when a URL is shared.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Twitter Cards (for Twitter):</strong> Similar to Open Graph, but specific to Twitter. Uses properties like <code>twitter:card</code> (e.g., 'summary_large_image'), <code>twitter:title</code>, and <code>twitter:image</code> to create engaging cards in tweets.</div></li>
+                    </ul>
+                    
+                    <h3>Canonical Tags</h3>
+                    <p>A canonical tag (<code>&lt;link rel="canonical" href="..."&gt;</code>) is a snippet of HTML code that defines the main version for duplicate, near-duplicate, and similar pages. If you have the same or similar content available under different URLs, the canonical tag tells search engines which version to index and rank, preventing duplicate content issues and consolidating your ranking signals.</p>
+
+                    <h3>Custom 404 Pages</h3>
+                    <p>A 404 error occurs when a user tries to access a page that doesn't exist. Instead of showing a generic, unhelpful browser error, a custom 404 page (e.g., <code>404.html</code>) provides a much better user experience. A good 404 page should acknowledge the error, maintain your site's branding, and provide helpful links, like a link back to the homepage or a search bar, to help users find what they were looking for and keep them on your site.</p>
+
+                </section>
+
+                <section aria-labelledby="offpage-seo-heading">
+                    <h2 id="offpage-seo-heading">Off-Page SEO: Building Authority & Trust</h2>
+                    <p>Off-Page SEO refers to actions taken outside of your website to build its authority and reputation, which in turn impacts your rankings.</p>
+
+                    <h3>The Power of Backlinks</h3>
+                    <p>Backlinks (links from other websites to yours) are like votes of confidence and are one of the most important ranking factors.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Quality Over Quantity:</strong> One link from a major, relevant industry publication is worth more than hundreds of links from low-quality, spammy directories.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Link Building Strategies:</strong> The best links are earned naturally by creating outstanding, shareable content ("link earning"). Other strategies include guest blogging on reputable sites, digital PR, and broken link building.</div></li>
+                    </ul>
+                    
+                    <h3>Local SEO: Winning Your Neighborhood</h3>
+                    <p>For businesses with a physical location or service area, local SEO is critical. The goal is to appear in the "Map Pack" at the top of search results.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Google Business Profile (GBP):</strong> A fully optimized GBP is the most important factor for ranking in local searches. Keep your hours, address, and services up-to-date and actively encourage customer reviews.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Local Citations (NAP):</strong> These are mentions of your business's Name, Address, and Phone number (NAP) on other websites (like Yelp, Justdial, etc.). Consistency across all platforms is key.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div><strong>On-Page Local Signals:</strong> Including your city or service area naturally in your website's titles, headers, and content helps search engines associate your business with a specific location.</div></li>
+                    </ul>
+
+                    <h3>Brand Signals & Online Reputation</h3>
+                    <p>Building a strong brand sends positive signals to search engines.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Brand Mentions:</strong> Even unlinked mentions of your brand on other sites can be a positive signal.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Online Reviews & Social Signals:</strong> Positive reviews on GBP and other platforms, along with an active social media presence, build brand trust and can indirectly influence SEO.</div></li>
+                    </ul>
+                </section>
+                
+                <section aria-labelledby="tools-heading">
+                    <h2 id="tools-heading">Essential SEO Tools</h2>
+                    <p>Effective SEO relies on data. These tools, especially Google's free suite, provide the insights you need to make informed decisions.</p>
+
+                    <h3>Google Search Console</h3>
+                    <p>This is a non-negotiable tool for any website owner. It helps you monitor, maintain, and troubleshoot your site's presence in Google Search results.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i><div>Monitor clicks, impressions, CTR, and average keyword positions.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div>Submit sitemaps and check the index status of your pages.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div>View Core Web Vitals reports and identify technical errors.</div></li>
+                    </ul>
+
+                    <h3>Google Analytics</h3>
+                    <p>While Search Console tells you what happens *before* a user clicks, Google Analytics tells you what happens *after*.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i><div>Track where your traffic is coming from (Organic, Social, Direct, etc.).</div></li>
+                        <li><i class="fas fa-check-circle"></i><div>Analyze user behavior: bounce rate, pages per session, and popular pages.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div>Set up and track conversion goals to measure success.</div></li>
+                    </ul>
+
+                    <h3>Google Keyword Planner</h3>
+                    <p>A free tool within Google Ads that helps with keyword research.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i><div>Discover new keyword ideas.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div>See average monthly search volumes for keywords.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div>Understand the level of competition for keywords.</div></li>
+                    </ul>
+                    
+                    <h3>Google Trends</h3>
+                    <p>This tool allows you to explore the popularity of topics and search queries over time.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i><div>Identify seasonal trends for your products or services.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div>Compare the popularity of different keywords.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div>Discover breakout topics and related queries.</div></li>
+                    </ul>
+                </section>
+
+                <a href="../blog.html" class="back-to-blog"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+            </article>
+        </div>
+    </main>
+
+    <footer class="main-footer" id="contact-footer" role="contentinfo">
+        <h2 class="footer-title">Get In Touch</h2>
+        <ul class="social-icons" aria-label="Social media links">
+            <li><a href="mailto:dilippariyar06@gmail.com" aria-label="Email Dilip Pariyar"><i class="fas fa-envelope"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/dilip-pariyar" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="tel:+911234567890" aria-label="Call Dilip Pariyar"><i class="fas fa-phone"></i></a></li>
+        </ul>
+        <p class="copyright">&copy; <span id="currentYear">2025</span> Dilip Pariyar. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navToggle = document.querySelector('.nav-toggle');
+            const mainNav = document.querySelector('.main-nav');
+            
+            function toggleMenu(forceClose = false) {
+                const isActive = mainNav.classList.contains('active');
+                if (forceClose || isActive) {
+                    navToggle.classList.remove('active');
+                    mainNav.classList.remove('active');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                } else {
+                    navToggle.classList.add('active');
+                    mainNav.classList.add('active');
+                    navToggle.setAttribute('aria-expanded', 'true');
+                }
+            }
+
+            if (navToggle && mainNav) {
+                navToggle.addEventListener('click', () => toggleMenu());
+                
+                // Close menu with Escape key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && mainNav.classList.contains('active')) {
+                        toggleMenu(true);
+                    }
+                });
+            }
+
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>

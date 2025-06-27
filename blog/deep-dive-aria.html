@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Deep Dive into ARIA - Dilip Pariyar</title>
+
+    <meta name="description" content="A detailed, comprehensive guide to understanding and implementing ARIA (Accessible Rich Internet Applications) to make modern web components accessible.">
+    <meta name="keywords" content="ARIA, Web Accessibility, a11y, Screen Reader, WAI-ARIA, roles, states, properties, accessible web design">
+    <meta name="author" content="Dilip Pariyar">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dilippariyar.github.io/portfolio/blog/deep-dive-aria.html">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <!-- Open Graph & Twitter Meta Tags -->
+    <meta property="og:title" content="A Deep Dive into ARIA: A Guide for Web Developers">
+    <meta property="og:description" content="Learn how ARIA roles, states, and properties bridge the gap for complex web components, ensuring they are usable by everyone.">
+    <meta property="og:image" content="https://dilippariyar.github.io/portfolio/images/logo_og.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* Base styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0d0d1a;
+            color: #fff;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        .main-header {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(13, 13, 26, 0.85); backdrop-filter: blur(10px);
+            padding: 15px 25px; z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #fff; text-decoration: none; }
+        .nav-toggle {
+            background: none; border: none;
+            color: #fff; font-size: 1.8rem; cursor: pointer; z-index: 1002;
+            position: relative; width: 30px; height: 30px;
+        }
+        .nav-toggle .fa-bars, .nav-toggle .fa-times {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+        }
+        .nav-toggle .fa-times { opacity: 0; transform: translate(-50%, -50%) rotate(-90deg); }
+        .nav-toggle.active .fa-bars { opacity: 0; transform: translate(-50%, -50%) rotate(90deg); }
+        .nav-toggle.active .fa-times { opacity: 1; transform: translate(-50%, -50%) rotate(0); }
+
+        .main-nav {
+            position: fixed; top: 0; right: -100%; width: 300px; height: 100vh;
+            background: rgba(18, 18, 31, 0.98); backdrop-filter: blur(15px);
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+            z-index: 1001;
+        }
+        .main-nav.active { right: 0; }
+        .main-nav ul { list-style: none; padding: 0; width: 100%; text-align: center; }
+        .main-nav ul li a {
+            color: #fff; text-decoration: none; font-size: 1.2rem; text-transform: uppercase;
+            display: block; padding: 20px;
+            transition: background 0.3s, color 0.3s;
+        }
+        .main-nav ul li a:hover, .main-nav ul li a.active {
+            color: #0d0d1a;
+            background: #00e6ff;
+        }
+
+        /* Blog Article Content */
+        .blog-content-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 140px 20px 80px;
+        }
+        .blog-article-title {
+            font-size: 2.8rem;
+            line-height: 1.2;
+            background: linear-gradient(45deg, #00e6ff, #ff00cc);
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+            margin-bottom: 15px;
+        }
+        .blog-meta { color: #888; margin-bottom: 40px; font-size: 0.9rem; }
+        .blog-article h2 {
+            font-size: 2.2rem;
+            color: #00e6ff;
+            margin-top: 50px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid rgba(0, 230, 255, 0.2);
+            padding-bottom: 10px;
+        }
+        .blog-article h3 {
+            font-size: 1.6rem;
+            color: #ff00cc;
+            margin-top: 35px;
+            margin-bottom: 20px;
+        }
+        .blog-article p, .blog-article li { color: #c0c0c0; margin-bottom: 20px; }
+        .blog-article ul { list-style: none; padding-left: 0; }
+        .blog-article li { display: flex; align-items: flex-start; }
+        .blog-article li i { color: #00e6ff; margin-right: 15px; margin-top: 7px; font-size: 0.9rem; }
+        .blog-article strong { color: #fff; font-weight: 600; }
+        .blog-article code {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ff00cc;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.95em;
+        }
+        .blog-article blockquote {
+            border-left: 4px solid #00e6ff;
+            margin: 30px 0;
+            padding: 15px 25px;
+            background: rgba(0, 230, 255, 0.05);
+            font-style: italic;
+            color: #c0c0c0;
+        }
+        .back-to-blog {
+            display: inline-block; margin-top: 40px;
+            color: #0d0d1a; background: #00e6ff; padding: 12px 25px;
+            border-radius: 50px; text-decoration: none; font-weight: 600;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .back-to-blog:hover { background: #fff; transform: scale(1.05); }
+
+        /* Footer */
+        .main-footer { padding: 60px 20px 30px; background: #12121f; text-align: center; }
+        .footer-title { font-size: 2.5rem; color: #fff; margin-bottom: 30px; }
+        .social-icons { list-style: none; padding: 0; display: flex; justify-content: center; gap: 25px; margin-bottom: 30px; }
+        .social-icons li a { color: #fff; font-size: 1.8rem; transition: all 0.3s ease; }
+        .social-icons li a:hover { transform: scale(1.25); color: #00e6ff; }
+        .copyright { font-size: 0.9rem; color: #aaa; }
+        
+        @media (max-width: 768px) {
+            .blog-article-title { font-size: 2.2rem; }
+            .blog-article h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header" role="banner">
+        <a href="../index.html" class="logo" aria-label="Dilip Pariyar - Home">DP</a>
+        <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNav">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-times"></i>
+        </button>
+        <nav class="main-nav" id="mainNav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../services.html">Services</a></li>
+                <li><a href="../courses.html">Courses</a></li>
+                <li><a href="../case-studies.html">Case Studies</a></li>
+                <li><a href="../blog.html" class="active">Blog</a></li>
+                <li><a href="../index.html#contact-footer">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="blog-content-container">
+            <article class="blog-article" aria-labelledby="blog-title">
+                <header>
+                    <h1 id="blog-title" class="blog-article-title">A Deep Dive into ARIA: Bridging the Gap for Web Accessibility</h1>
+                    <p class="blog-meta">By Dilip Pariyar | Published on June 21, 2025</p>
+                </header>
+                
+                <section aria-labelledby="intro-heading">
+                    <h2 id="intro-heading" class="visually-hidden">Introduction</h2>
+                    <p>When native HTML5 elements like <code>&lt;nav&gt;</code>, <code>&lt;button&gt;</code>, and <code>&lt;dialog&gt;</code> aren't enough to describe the complex widgets of modern web applications, developers must turn to ARIA (Accessible Rich Internet Applications). ARIA is a W3C specification that provides a set of attributes to make web content and applications more accessible to people with disabilities.</p>
+                    <blockquote>
+                        <strong>The First and Most Important Rule of ARIA:</strong> If you can use a native HTML element or attribute with the semantics and behavior you require already built in, use it instead of repurposing an element and adding an ARIA role, state, or property.
+                    </blockquote>
+                </section>
+
+                <section aria-labelledby="accessibility-tree-heading">
+                    <h2 id="accessibility-tree-heading">The Core Concept: The Accessibility Tree</h2>
+                    <p>To understand ARIA, you must first understand the <strong>Accessibility Tree</strong>. When a browser loads a webpage, it parses the HTML to create the DOM (Document Object Model). In parallel, it creates a second, related tree filtered for assistive technologies (AT) like screen readers. This tree exposes the <strong>role</strong>, <strong>name</strong>, and <strong>state</strong> of each element. ARIA gives you direct control to modify this tree, adding meaning where HTML alone cannot.</p>
+                </section>
+
+                <section aria-labelledby="components-heading">
+                    <h2 id="components-heading">The Three Components of ARIA</h2>
+                    <p>ARIA is a specification of HTML attributes that can be broken down into three main components: Roles, Properties, and States.</p>
+                    
+                    <h3>1. Roles: "What are you?"</h3>
+                    <p>The <code>role</code> attribute defines the purpose of an element, setting the user's expectation for interaction. There are several categories:</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Widget Roles:</strong> For interactive elements like <code>role="button"</code>, <code>role="slider"</code>, or <code>role="tablist"</code>.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Landmark Roles:</strong> For major page regions like <code>role="navigation"</code> or <code>role="main"</code>. Always prefer native elements like <code>&lt;nav&gt;</code> and <code>&lt;main&gt;</code>.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div><strong>Live Region Roles:</strong> To inform users of dynamic changes, such as <code>role="alert"</code> for urgent messages or <code>role="status"</code> for polite updates.</div></li>
+                    </ul>
+
+                    <h3>2. Properties: "What are your characteristics?"</h3>
+                    <p>Properties define essential, often unchanging, characteristics. They provide context and establish relationships.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i><div><code>aria-label</code>: Provides an accessible name for an element when there is no visible text label (e.g., an icon button).</div></li>
+                        <li><i class="fas fa-check-circle"></i><div><code>aria-labelledby</code>: Provides a name by referencing the ID of an existing visible label.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div><code>aria-describedby</code>: Provides extra descriptive text, like instructions or error messages.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div><code>aria-haspopup</code>: Indicates an element triggers a popup menu or dialog.</div></li>
+                    </ul>
+
+                    <h3>3. States: "What is your current condition?"</h3>
+                    <p>States communicate the current condition of an element and are frequently updated with JavaScript.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i><div><code>aria-expanded="true/false"</code>: The most common state. Indicates if a collapsible element is open or closed.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div><code>aria-selected="true/false"</code>: Indicates which element in a group (like a tab) is currently selected.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div><code>aria-checked="true/false/mixed"</code>: Indicates the state of a custom checkbox or radio button.</div></li>
+                        <li><i class="fas fa-check-circle"></i><div><code>aria-current="page"</code>: A best-practice for identifying the current page's link in a navigation menu.</div></li>
+                    </ul>
+                </section>
+
+                <section aria-labelledby="js-engine-heading">
+                    <h2 id="js-engine-heading">JavaScript: The Engine That Powers ARIA</h2>
+                    <p>Adding ARIA roles is only half the battle. If you use ARIA, you promise the user your component will behave as expected. This requires JavaScript to manage both state and keyboard interaction. Without it, ARIA is a set of empty promises that creates a more confusing experience. A screen reader might announce a `div` as a "button," but if no JavaScript handles click or keypress events, it's a dead end for the user. This is worse than not using ARIA at all, as it sets an expectation that is never met, leading to frustration.</p>
+                </section>
+
+                <a href="../blog.html" class="back-to-blog"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+            </article>
+        </div>
+    </main>
+
+    <footer class="main-footer" id="contact-footer" role="contentinfo">
+        <h2 class="footer-title">Get In Touch</h2>
+        <ul class="social-icons" aria-label="Social media links">
+            <li><a href="mailto:dilippariyar06@gmail.com" aria-label="Email Dilip Pariyar"><i class="fas fa-envelope"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/dilip-pariyar" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a></li>
+        </ul>
+        <p class="copyright">&copy; <span id="currentYear">2025</span> Dilip Pariyar. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navToggle = document.querySelector('.nav-toggle');
+            const mainNav = document.querySelector('.main-nav');
+            if (navToggle && mainNav) {
+                navToggle.addEventListener('click', () => {
+                    navToggle.classList.toggle('active');
+                    mainNav.classList.toggle('active');
+                    const isExpanded = mainNav.classList.contains('active');
+                    navToggle.setAttribute('aria-expanded', isExpanded);
+                });
+            }
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>
