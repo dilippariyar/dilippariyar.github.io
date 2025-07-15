@@ -1,4 +1,39 @@
 User-agent: *
 Allow: /
+Sitemap: https://dilippariyar.github.io/sitemap.xml
 
-Sitemap: https://dilippariyar.github.io/portfolio/sitemap.xml
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: AhrefsBot
+Allow: /
+
+User-agent: SemrushBot
+Allow: /
+
+User-agent: archive.org_bot
+Allow: /
