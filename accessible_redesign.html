@@ -109,10 +109,12 @@
   </style>
 </head>
 <body>
-<h1 id="inaccessible-section">My In-accessible site</h1>
+<section aria-label="Inaccessible web page" aria-description="This section is in-accessible for screen reader user">
+  <h1 id="inaccessible-section">My In-accessible site</h1>
   <p>This web page contain two section the first section is inaccessible, it means you cannot navigate with your screen reader </p>
-  <a href="#accessible-section"Click here to jump accessible section</a></p>
-<section aria-label="Inaccessible web page">
+  <p>This section is accessible for screen reader</p>
+  <a href="#accessible-section"> Click here to jump accessible section</a>
+
   <div class="header" role="banner">My Sample Website</div>
 
   <div class="nav" role="navigation">
