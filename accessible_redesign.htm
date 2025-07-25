@@ -109,7 +109,9 @@
   </style>
 </head>
 <body>
-
+<h1 id="inaccessible-section">My In-accessible site</h1>
+  <p>This web page contain two section the first section is inaccessible, it means you cannot navigate with your screen reader </p>
+  <a href="#accessible-section"Click here to jump accessible section</a></p>
 <section aria-label="Inaccessible web page">
   <div class="header" role="banner">My Sample Website</div>
 
@@ -142,7 +144,9 @@
 
 <hr>
 <!-- This is the accessible redesign section -->
-<section aria-label="accessible redesign web page" aria-description="This section is accessible with screen reader">
+<section id="accessible-section" aria-label="accessible redesign web page" aria-description="This section is accessible with screen reader">
+  <p>this section is accessible with screen reader, it means you can easily navigate with screen reader</p>
+  <a href="#inaccessible-section">Click here to jump In-accessible section</a>
   <a href="#main" class="sr-only" aria-label="Skip to main content">Skip to main content</a>
   <a href="#footer" class="sr-only" aria-label="Skip to footer">Skip to footer</a>
 
