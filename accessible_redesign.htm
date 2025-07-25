@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Accessible Practice Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background: #f4f4f4;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      margin: 0;
+    }
+
+    header, nav, main, footer {
+      padding: 20px;
+    }
+
+    header {
+      background: #111;
+      color: #fff;
+    }
+
+    nav {
+      background: #eee;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav button {
+      cursor: pointer;
+      background-color: #0066cc;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+    }
+
+    .product {
+      border: 1px solid #ccc;
+      margin: 20px 0;
+      padding: 10px;
+    }
+
+    .image-gallery img {
+      width: 150px;
+      margin-right: 10px;
+    }
+
+    .form-section input,
+    .form-section textarea {
+      display: block;
+      margin-bottom: 10px;
+      width: 100%;
+      padding: 10px;
+    }
+
+    .form-section label {
+      margin-top: 10px;
+      display: block;
+    }
+
+    .form-section button {
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+
+    th {
+      background: #333;
+      color: white;
+      text-align: left;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    a:focus, button:focus {
+      outline: 3px solid #f90;
+    }
+  </style>
+</head>
+<body>
+
+<section aria-label="Inaccessible web page">
+  <div class="header" role="banner">My Sample Website</div>
+
+  <div class="nav" role="navigation">
+    <span onclick="goHome()" role="button" aria-label="go to home">Home</span>
+    <span onclick="goAbout()" role="button" aria-label="go to about us page">About</span>
+    <span onclick="goContact()" role="button" aria-label="go to contact us page">Contact</span>
+  </div>
+
+  <div class="content"role="main">
+    <div class="image-section">
+      <img src="https://via.placeholder.com/300" alt="image of the person"/>
+    </div>
+
+    <div class="form-section">
+      <h2>Contact Us:</h2>
+      <label for="name">Enter your name:</label>
+      <input type="text" id="name" name="name" value="name" placeholder="Name" />
+
+      <labelfor="email">Enter your Email:</label>
+      <input type="email" id="email" name="email" value="email" placeholder="Email" />
+        <label for="message">Enter your message:</label>
+      <textarea placeholder="Your Message"></textarea>
+      <button onclick="submitForm()" aria-label="submit form">Send</button>
+    </div>
+  </div>
+
+  <div class="footer" role="complementary">© 2025 All Rights Reserved</div>
+</section>
+
+<hr>
+<!-- This is the accessible redesign section -->
+<section aria-label="accessible redesign web page" aria-description="This section is accessible with screen reader">
+  <a href="#main" class="sr-only" aria-label="Skip to main content">Skip to main content</a>
+  <a href="#footer" class="sr-only" aria-label="Skip to footer">Skip to footer</a>
+
+  <header id="header" role="banner">
+    <h1>My Accessible Site</h1>
+    <p>A fully screen reader-friendly practice page.</p>
+  </header>
+
+  <nav role="navigation" aria-label="Main Navigation">
+    <button onclick="goHome()" aria-label="Go to home page">Home</button>
+    <button onclick="goServices()" aria-label="Go to services page">Services</button>
+    <button onclick="goPortfolio()" aria-label="Go to portfolio page">Portfolio</button>
+    <button onclick="goContact()" aria-label="Go to contact page">Contact</button>
+  </nav>
+
+  <main id="main" role="main">
+    <section aria-labelledby="profile-heading">
+      <h2 id="profile-heading">Profile Image</h2>
+      <img src="https://via.placeholder.com/200" alt="Portrait of a team member" />
+    </section>
+
+    <section class="product" aria-labelledby="product1-heading">
+      <h2 id="product1-heading">Product One</h2>
+      <p>A great item for daily use.</p>
+      <button aria-label="Buy Product One" onclick="buyNow()">Buy Now</button>
+    </section>
+
+    <section class="product" aria-labelledby="product2-heading">
+      <h2 id="product2-heading">Product Two</h2>
+      <p>This product will change your life.</p>
+      <button aria-label="Buy Product Two" onclick="buyNow()">Buy Now</button>
+    </section>
+
+    <section class="form-section" aria-labelledby="contact-form-heading">
+      <h2 id="contact-form-heading">Contact Us</h2>
+      <form>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your Name">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your Email">
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Type your message here..."></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <section class="image-gallery" aria-labelledby="gallery-heading">
+      <h2 id="gallery-heading">Image Gallery</h2>
+      <img src="https://via.placeholder.com/100" alt="Gallery image 1">
+      <img src="https://via.placeholder.com/100" alt="Gallery image 2">
+      <img src="https://via.placeholder.com/100" alt="Gallery image 3">
+    </section>
+
+    <section class="table-section" aria-labelledby="table-heading">
+      <h2 id="table-heading">Data Table</h2>
+      <table> 
+        <caption>Product details</caption>
+        <thead>
+          <tr>
+            <th scope="col">Item</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Pen</th>
+            <td>$1</td>
+          </tr>
+          <tr>
+            <th scope="row">Notebook</th>
+            <td>$3</td>
+          </tr>
+
+          <tr>
+            <th scope="row">Laptop</th>
+            <td>25000</td>
+          </tr>
+          </tbody>
+
+        <tfoot>
+          <tr>
+            <th scope="row">Smartphone</th>
+            <td>15000</td>
+          </tr>
+        </foot>
+
+      </table>
+    </section>
+
+    <section aria-hidden="true">
+      <p>This section is hidden from screen readers and users.</p>
+    </section>
+
+    <section>
+      <a href="/product-details" aria-label="Learn more about Product Three">Learn more about Product Three</a>
+    </section>
+  </main>
+
+  <footer id="footer" role="contentinfo" class="footer">
+    <h2>Follow Us</h2>
+    <a href="#" aria-label="Follow us on Facebook"><i class="fab fa-facebook"></i> Facebook</a>
+    <a href="#" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i> Twitter</a>
+    <a href="#" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i> Instagram</a>
+
+    <!-- Only visible to screen readers -->
+    <a href="#header" class="sr-only" aria-label="Jump to top of the page">Jump to top</a>
+  </footer>
+</section>
+  <script>
+    function goHome() {
+      alert("Go to Home");
+    }
+
+    function goServices() {
+      alert("Go to Services");
+    }
+
+    function goPortfolio() {
+      alert("Go to Portfolio");
+    }
+
+    function goContact() {
+      alert("Go to Contact");
+    }
+
+    function buyNow() {
+      alert("Buying product...");
+    }
+  </script>
+</body>
+</html>
