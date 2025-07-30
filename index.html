@@ -202,10 +202,10 @@
   }
 }
 </script>
-    
+        
     <link rel="icon" href="https://dilippariyar.github.io/favicon.ico" type="image/x-icon">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
@@ -244,7 +244,8 @@
         .cta-button:active { transform: translateY(0) scale(1); }
 
         /* General Section Styles */
-        .content-section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+        .content-section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; opacity: 0; transform: translateY(40px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .content-section.in-view { opacity: 1; transform: translateY(0); }
         .section-title { font-size: 2.8rem; margin-bottom: 50px; text-align: center; background: linear-gradient(45deg, #ff00cc, #00e6ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
         /* About Section */
@@ -300,6 +301,37 @@
         .project-links a:hover { color: #ff00cc; }
         .project-links i { margin-right: 5px; }
 
+        /* --- CTA Section: Container for Centering --- */
+        .cta-section { text-align: center; margin: 60px 0; }
+        .contact-cta-button { display: inline-block; padding: 16px 32px; font-size: 1.15em; font-weight: 600; text-decoration: none; border-radius: 50px; transition: all 0.3s ease; cursor: pointer; box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); letter-spacing: 0.5px; text-transform: uppercase; border: 2px solid transparent; }
+        .contact-cta-button i { margin-right: 8px; vertical-align: middle; }
+        .call-me-button { display: none; background-color: #28a745; color: #ffffff; border-color: #28a745; }
+        .email-me-button { display: inline-block; background-color: #007bff; color: #ffffff; border-color: #007bff; }
+        .email-me-button:hover { background-color: #0056b3; border-color: #0056b3; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); }
+        .email-me-button:active { background-color: #004085; border-color: #004085; transform: translateY(0); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
+        @media (max-width: 600px) {
+            .email-me-button { display: none; }
+            .call-me-button { display: block; margin: 15px auto; width: 80%; max-width: 300px; }
+            .call-me-button:hover { background-color: #218838; border-color: #218838; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); }
+            .call-me-button:active { background-color: #1e7e34; border-color: #1e7e34; transform: translateY(0); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
+        }
+        .contact-cta-button:focus { outline: 3px solid #0056b3; outline-offset: 4px; }
+        @media (max-width: 600px) { .contact-cta-button:focus { outline: 3px solid #218838; } }    
+
+        /* Contact Form Section */
+        .contact-form-container { max-width: 700px; margin: 0 auto; }
+        .contact-form { display: flex; flex-direction: column; gap: 20px; }
+        .contact-form label { font-weight: 600; font-size: 1.1rem; text-align: left; }
+        .contact-form input, .contact-form textarea {
+            width: 100%; padding: 15px; background-color: rgba(255, 255, 255, 0.05); border: 2px solid #444; border-radius: 10px; color: #fff; font-size: 1rem; font-family: 'Poppins', sans-serif; transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: #00e6ff; box-shadow: 0 0 10px rgba(0, 230, 255, 0.5); }
+        .contact-form textarea { resize: vertical; min-height: 150px; }
+        .contact-form button {
+            align-self: center; padding: 15px 40px; font-size: 1.1rem; font-weight: 600; color: #fff; background: linear-gradient(135deg, #ff00cc, #00e6ff); border: none; border-radius: 50px; cursor: pointer; transition: all 0.4s ease;
+        }
+        .contact-form button:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 230, 255, 0.4); }
+
         /* Footer */
         .main-footer { padding: 60px 20px 30px; background: #12121f; text-align: center; }
         .footer-title { font-size: 2.5rem; color: #fff; margin-bottom: 30px; }
@@ -323,39 +355,20 @@
             .timeline-item:nth-child(even) { left: 0; }
             .timeline-item::after { left: 18px; }
         }
-
-        /* --- CTA Section: Container for Centering --- */
-        .cta-section { text-align: center; margin: 60px 0; }
-        .contact-cta-button { display: inline-block; padding: 16px 32px; font-size: 1.15em; font-weight: 600; text-decoration: none; border-radius: 50px; transition: all 0.3s ease; cursor: pointer; box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); letter-spacing: 0.5px; text-transform: uppercase; border: 2px solid transparent; }
-        .contact-cta-button i { margin-right: 8px; vertical-align: middle; }
-        .call-me-button { display: none; background-color: #28a745; color: #ffffff; border-color: #28a745; }
-        .email-me-button { display: inline-block; background-color: #007bff; color: #ffffff; border-color: #007bff; }
-        .email-me-button:hover { background-color: #0056b3; border-color: #0056b3; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); }
-        .email-me-button:active { background-color: #004085; border-color: #004085; transform: translateY(0); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
-        @media (max-width: 600px) {
-            .email-me-button { display: none; }
-            .call-me-button { display: block; margin: 15px auto; width: 80%; max-width: 300px; }
-            .call-me-button:hover { background-color: #218838; border-color: #218838; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); }
-            .call-me-button:active { background-color: #1e7e34; border-color: #1e7e34; transform: translateY(0); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
-        }
-        .contact-cta-button:focus { outline: 3px solid #0056b3; outline-offset: 4px; }
-        @media (max-width: 600px) { .contact-cta-button:focus { outline: 3px solid #218838; } }    
     </style>
 </head>
 <body>
     <header class="main-header" role="banner">
-        <a href="#intro" class="logo" aria-label="Dilip Pariyar - Home">DP</a>
+        <a href="#intro" class="logo" aria-label="Return to the top of the page">DP</a>
         <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNavList">
             <i class="fas fa-bars" aria-hidden="true"></i>
         </button>
         <nav class="main-nav" id="mainNav" role="navigation">
             <ul id="mainNavList">
                 <li><a href="services.html">Services</a></li>
-                <li><a href="courses.html">courses</a></li>
-                <li><a href="case_studies.html">Case Studies</a></li>
-                <!--<li><a href="#education">Education</a></li>-->
-                <!--<li><a href="#certifications">Certifications</a></li>-->
-                <li><a href="blog.html">Blogs</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="blog.html">Blog</a></li>
                 <li><a href="accessibility.html">Accessibility</a></li>
             </ul>
         </nav>
@@ -366,11 +379,11 @@
             <div id="particles-js"></div>
             <div class="intro-content">
                 <div class="profile-image-container">
-                    <img src="https://dilippariyar.github.io/images/dilip.jpg" alt="A professional picture of Dilip Pariyar"> 
+                    <img src="https://dilippariyar.github.io/assets/dilip.jpg" alt="A professional picture of Dilip Pariyar"> 
                 </div>
                 <h1 id="main-heading">Dilip Pariyar</h1>
                 <p class="subtitle">Digital Marketing & Web Accessibility Professional</p>
-                <a href="https://dilippariyar.github.io/assets/Dilip_Pariyar_Resume.pdf" class="cta-button" download="Dilip_Pariyar_Resume.pdf">
+                <a href="https://dilippariyar.github.io/assets/Dilip_Pariyar_Resume.pdf" class="cta-button" download="Dilip_Pariyar_Resume.pdf" aria-label="Download Dilip Pariyar's Resume in PDF format">
                     <i class="fas fa-download"></i> Download Resume
                 </a>
             </div>
@@ -379,12 +392,12 @@
         <section id="about" class="content-section" aria-labelledby="about-title">
             <h2 class="section-title" id="about-title">About Me</h2>
             <p>
-                I am a passionate professional specializing in **Search Engine Optimization (SEO)** and **web accessibility**, holding a Bachelor of Management Studies in Marketing. My comprehensive SEO expertise covers **on-page, off-page, and technical aspects**—from optimizing crucial elements like **meta tags, Open Graph, Twitter Cards, and Schema markup** for rich results, to managing `robots.txt`, `sitemap.xml`, and **Google Search Console**. Crucially, I am dedicated to crafting truly inclusive digital experiences by rigorously applying **Semantic HTML, ARIA, and WCAG 2.2 principles** (**Perceivable, Operable, Understandable, Robust**), ensuring seamless navigation and understanding for all users, including those relying on screen readers like **NVDA** and **TalkBack**.
+                I am a passionate professional specializing in <strong>Search Engine Optimization (SEO)</strong> and <strong>web accessibility</strong>, holding a Bachelor of Management Studies in Marketing. My comprehensive SEO expertise covers <strong>on-page, off-page, and technical aspects</strong>—from optimizing crucial elements like <strong>meta tags, Open Graph, Twitter Cards, and Schema markup</strong> for rich results, to managing `robots.txt`, `sitemap.xml`, and <strong>Google Search Console</strong>. Crucially, I am dedicated to crafting truly inclusive digital experiences by rigorously applying <strong>Semantic HTML, ARIA, and WCAG 2.2 principles</strong> (<strong>Perceivable, Operable, Understandable, Robust</strong>), ensuring seamless navigation and understanding for all users, including those relying on screen readers like <strong>NVDA</strong> and <strong>TalkBack</strong>.
             </p>
         </section>
 
         <section id="skills" class="content-section" aria-labelledby="skills-title">
-            <h2 class="section-title" id="skills-title">My Skills</h2>
+            <h2 class="section-title" id="skills-title">Skills</h2>
             <ul class="skills-list">
                 <li class="skill-item"> 
                     <div class="skill-circle" role="img" aria-label="Digital Marketing Skill">
@@ -443,7 +456,7 @@
         </section>
 
         <section id="experience" class="content-section" aria-labelledby="experience-title">
-            <h2 class="section-title" id="experience-title">My Experience</h2>
+            <h2 class="section-title" id="experience-title">Experience</h2>
             <div class="timeline">
                 <article class="timeline-item" aria-labelledby="exp1-title">
                     <div class="timeline-content">
@@ -464,7 +477,6 @@
             </div>
         </section>
 
-        <!-- Education Section (New) -->
         <section id="education" class="content-section" aria-labelledby="education-title">
             <h2 class="section-title" id="education-title">Education</h2>
             <article class="education-item" aria-labelledby="degree-title">
@@ -475,7 +487,6 @@
             </article>
         </section>
 
-        <!-- Certification Section (New Layout) -->
         <section id="certifications" class="content-section" aria-labelledby="certifications-title">
             <h2 class="section-title" id="certifications-title">Certifications</h2>
             <ul class="certifications-list">
@@ -484,7 +495,7 @@
                     <h3>Digital Accessibility Training</h3>
                     <p class="issuer">Vision Aid</p>
                     <p class="details">
-                        Persuing training covering web accessibility testing, including WCAG 2.2 guidelines, ARIA implementation, and practical application of Semantic HTML.
+                        Completed comprehensive training covering web accessibility testing, including WCAG 2.2 guidelines, ARIA implementation, and practical application of Semantic HTML.
                     </p>
                 </li>
                 <li class="certification-card">
@@ -499,7 +510,7 @@
         </section>
 
         <section id="projects" class="content-section" aria-labelledby="projects-title">
-            <h2 class="section-title" id="projects-title">My Projects</h2>
+            <h2 class="section-title" id="projects-title">Projects</h2>
             <ul class="projects-list">
                 <li class="project-card">
                     <img src="https://placehold.co/600x400/334/FFF?text=Project+Image" alt="Screenshot of a portfolio website with visible elements of SEO optimization." class="project-image" hidden>
@@ -507,8 +518,8 @@
                         <h3>SEO-Optimized Portfolio Website</h3>
                         <p>Developed a personal portfolio website using Semantic HTML & CSS, optimized for on-page and technical SEO. Implemented meta tags, Open Graph, Twitter Cards, Schema markup for rich results, `robots.txt`, `sitemap.xml`, custom 404 page, and Google Search Console setup.</p>
                         <div class="project-links">
-                            <a href="https://github.com/dilippariyar" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-                            <a href="#intro"><i class="fas fa-eye"></i> Live Demo</a>
+                            <a href="https://github.com/dilippariyar" target="_blank" rel="noopener noreferrer" aria-label="View SEO-Optimized Portfolio on GitHub"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="#intro" aria-label="View Live Demo of SEO-Optimized Portfolio"><i class="fas fa-eye"></i> Live Demo</a>
                         </div>
                     </div>
                 </li>
@@ -518,7 +529,7 @@
                         <h3>Accessible Web Page Redesign</h3>
                         <p>Transformed an inaccessible web page into an accessible experience using Semantic HTML, ARIA attributes, and WCAG 2.2 guidelines. Focus on heading-based navigation and clear labels for enhanced usability.</p>
                         <div class="project-links">
-                            <a href="accessible_redesign.html"><i class="fas fa-file-alt"></i> View Details</a>
+                            <a href="https://dilippariyar.github.io/accessible_redesign.html" aria-label="View Details of the Accessible Web Page Redesign project"><i class="fas fa-file-alt"></i> View Details</a>
                         </div>
                     </div>
                 </li>
@@ -527,24 +538,50 @@
 
         <section aria-label="Contact me directly">
             <div class="cta-section">
-                <a href="tel:+918657213745" class="contact-cta-button call-me-button">
+                <a href="tel:+918657213745" class="contact-cta-button call-me-button" aria-label="Call Dilip Pariyar">
                     <i class="fas fa-phone" aria-hidden="true"></i> Call Me
                 </a>
-                <a href="mailto:dilippariyar06@gmail.com" class="contact-cta-button email-me-button">
+                <a href="mailto:dilippariyar06@gmail.com" class="contact-cta-button email-me-button" aria-label="Email Dilip Pariyar">
                     <i class="fas fa-envelope" aria-hidden="true"></i> Email Me
                 </a>
             </div>
         </section>
+
+        <section id="contact-form-section" class="content-section" aria-labelledby="contact-title">
+            <h2 id="contact-title" class="section-title">Get In Touch</h2>
+            <div class="contact-form-container">
+                <form class="contact-form" action="https://formspree.io/f/xdkdgbrl" method="POST">
+                    <div>
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    <div>
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                    </div>
+                    <div>
+                        <label for="phone">Mobile Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your mobile number" required>
+                    </div>
+                    <div>
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+                    </div>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+        <a href="#intro" class="visually-hidden">Jump back to top</a>
     </main>
 
     <footer class="main-footer" id="contact-footer" role="contentinfo">
-        <h2 class="footer-title">Get In Touch</h2>
+        <h2 class="footer-title">Connect on Social</h2>
         <ul class="social-icons" aria-label="Social media links">
-            <li><a href="https://www.facebook.com/dilip.pariyar.5201" target="_blank" rel="noopener noreferrer" aria-label="Facebook Profile"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="https://www.instagram.com/_dilippariyar_" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="https://twitter.com/dilippariyart" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile (X)"><i class="fa-brands fa-x-twitter"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/dilip-pariyar" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a></li>
-            <li><a href="https://github.com/dilippariyar" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://www.facebook.com/dilip.pariyar.5201" target="_blank" rel="noopener noreferrer" aria-label="Dilip Pariyar's Facebook Profile"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://www.instagram.com/_dilippariyar_" target="_blank" rel="noopener noreferrer" aria-label="Dilip Pariyar's Instagram Profile"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://twitter.com/dilippariyart" target="_blank" rel="noopener noreferrer" aria-label="Dilip Pariyar's Twitter Profile"><i class="fa-brands fa-x-twitter"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/dilip-pariyar" target="_blank" rel="noopener noreferrer" aria-label="Dilip Pariyar's LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a></li>
+            <li><a href="https://github.com/dilippariyar" target="_blank" rel="noopener noreferrer" aria-label="Dilip Pariyar's GitHub Profile"><i class="fab fa-github"></i></a></li>
         </ul>
         <p class="copyright">&copy; <span id="currentYear">2025</span> Dilip Pariyar. All rights reserved.</p>
     </footer>
@@ -584,7 +621,36 @@
                     const isExpanded = mainNav.classList.toggle('active');
                     navToggle.setAttribute('aria-expanded', isExpanded);
                 });
+
+                // Add Escape key functionality to close the menu
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                        navToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
             }
+
+            // Fade-in sections on scroll
+            const sections = document.querySelectorAll('.content-section');
+            const observerOptions = {
+                root: null, // relative to the viewport
+                rootMargin: '0px',
+                threshold: 0.1 // 10% of the element needs to be visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        observer.unobserve(entry.target); // Stop observing after it's visible
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
         });
     </script>
 </body>
