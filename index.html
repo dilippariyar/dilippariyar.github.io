@@ -362,17 +362,18 @@
         }
     </style>
 </head>
+
 <body>
-    <header class="main-header" role="banner">
+    <header class="main-header">
         <a href="#intro" class="logo" aria-label="Return to the top of the page">DP</a>
         <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNavList">
             <i class="fas fa-bars" aria-hidden="true"></i>
         </button>
-        <nav class="main-nav" id="mainNav" role="navigation">
+        <nav class="main-nav" id="mainNav">
             <ul id="mainNavList">
-                <li><a href="services.html">Services</a></li>
-                <li><a href="courses.html">Courses</a></li>
-                <li><a href="case-studies.html">Case Studies</a></li>
+                <!-- <li><a href="services.html">Services</a></li> -->
+                <!-- <li><a href="courses.html">Courses</a></li> -->
+                <!-- <li><a href="case-studies.html">Case Studies</a></li> -->
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="accessibility.html">Accessibility</a></li>
             </ul>
@@ -387,7 +388,7 @@
                     <img src="https://dilippariyar.github.io/images/dilip.jpg" alt="A professional picture of Dilip Pariyar"> 
                 </div>
                 <h1 id="main-heading">Dilip Pariyar</h1>
-                <p class="subtitle">Digital Marketing & Web Accessibility Professional</p>
+                <p class="subtitle">Web Accessibility Professional</p>
                 <a href="https://dilippariyar.github.io/assets/Dilip_Pariyar_A11y_Resume.pdf" class="cta-button" download="Dilip_Pariyar_Resume.pdf" aria-label="Download Dilip Pariyar's Resume in PDF format">
                     <i class="fas fa-download"></i> Download Resume
                 </a>
@@ -396,92 +397,94 @@
 
         <section id="about" class="content-section" aria-labelledby="about-title">
             <h2 class="section-title" id="about-title">About Me</h2>
-            <p>
-                I am a passionate professional specializing in <strong>Search Engine Optimization (SEO)</strong> and <strong>web accessibility</strong>, holding a Bachelor of Management Studies in Marketing. My comprehensive SEO expertise covers <strong>on-page, off-page, and technical aspects</strong>—from optimizing crucial elements like <strong>meta tags, Open Graph, Twitter Cards, and Schema markup</strong> for rich results, to managing `robots.txt`, `sitemap.xml`, and <strong>Google Search Console</strong>. Crucially, I am dedicated to crafting truly inclusive digital experiences by rigorously applying <strong>Semantic HTML, ARIA, and WCAG 2.2 principles</strong> (<strong>Perceivable, Operable, Understandable, Robust</strong>), ensuring seamless navigation and understanding for all users, including those relying on screen readers like <strong>NVDA</strong> and <strong>TalkBack</strong>.
-            </p>
+<p>
+    I am a highly motivated professional specializing in **digital accessibility** and inclusive design, holding a Bachelor of Management Studies degree. My primary focus is rigorously applying **WCAG 2.2 principles** (Perceivable, Operable, Understandable, Robust) to ensure seamless and equitable digital experiences for all users. I possess practical expertise in utilizing **Semantic HTML, ARIA, and CSS** to fix barriers and enhance usability for assistive technologies. Furthermore, I am proficient in manual accessibility testing using screen readers like **NVDA** (for web) and **TalkBack** (for mobile apps), ensuring every user, regardless of ability, can fully navigate and understand digital content.
+</p>
         </section>
 
-        <section id="skills" class="content-section" aria-labelledby="skills-title">
-            <h2 class="section-title" id="skills-title">Skills</h2>
-            <ul class="skills-list">
-                <li class="skill-item"> 
-                    <div class="skill-circle" role="img" aria-label="SEO Skill">
-                        <svg viewBox="0 0 100 100">
-                            <circle class="progress-ring-bg" cx="50" cy="50" r="45" />
-                            <circle class="progress-ring-fg" cx="50" cy="50" r="45" />
-                        </svg>
-                    </div>
-                    <span>SEO</span>
-                </li>
-                <li class="skill-item">
-                    <div class="skill-circle" role="img" aria-label="HTML Skill">
-                        <svg viewBox="0 0 100 100">
-                            <circle class="progress-ring-bg" cx="50" cy="50" r="45" />
-                            <circle class="progress-ring-fg" cx="50" cy="50" r="45" />
-                        </svg>
-                    </div>
-                    <span>HTML</span>
-                </li>
-                <li class="skill-item">
-                    <div class="skill-circle" role="img" aria-label="CSS Skill">
-                        <svg viewBox="0 0 100 100">
-                            <circle class="progress-ring-bg" cx="50" cy="50" r="45" />
-                            <circle class="progress-ring-fg" cx="50" cy="50" r="45" />
-                        </svg>
-                    </div>
-                    <span>CSS</span>
-                </li>
-                <li class="skill-item"> 
-                    <div class="skill-circle" role="img" aria-label="ARIA Skill">
-                        <svg viewBox="0 0 100 100">
-                            <circle class="progress-ring-bg" cx="50" cy="50" r="45" />
-                            <circle class="progress-ring-fg" cx="50" cy="50" r="45" />
-                        </svg>
-                    </div>
-                    <span>ARIA</span>
-                </li>
-                <li class="skill-item">
-                    <div class="skill-circle" role="img" aria-label="WCAG 2.2 Skill">
-                        <svg viewBox="0 0 100 100">
-                            <circle class="progress-ring-bg" cx="50" cy="50" r="45" />
-                            <circle class="progress-ring-fg" cx="50" cy="50" r="45" />
-                        </svg>
-                    </div>
-                    <span>WCAG 2.2</span>
-                </li>
-                 <li class="skill-item">
-                    <div class="skill-circle" role="img" aria-label="Web Accessibility Skill">
-               <svg viewBox="0 0 100 100">
-                            <circle class="progress-ring-bg" cx="50" cy="50" r="45" />
-                            <circle class="progress-ring-fg" cx="50" cy="50" r="45" />
-                        </svg>
-                    </div>
-                    <span>Web Accessibility</span>
-                </li>
-            </ul>
-        </section>
-
-        <section id="experience" class="content-section" aria-labelledby="experience-title">
-            <h2 class="section-title" id="experience-title">Experience</h2>
-            <div class="timeline">
-                <article class="timeline-item" aria-labelledby="exp1-title">
-                    <div class="timeline-content">
-                        <span class="timeline-date">Jan 2024 - May 2024</span>
-                        <h3 id="exp1-title">Applied SEO & Accessibility Projects</h3>
-                        <p>
-                            Gained hands-on experience by applying SEO strategies (on-page optimization, keyword research, technical SEO audits) and Web Accessibility principles (WCAG 2.2, ARIA, semantic HTML) to personal and simulated web projects. This practical application solidified my understanding and problem-solving skills in real-world scenarios.
-                        </p>
-                    </div>
-                </article>
-                <article class="timeline-item" aria-labelledby="exp2-title">
-                    <div class="timeline-content">
-                        <span class="timeline-date">2020 - 2023</span>
-                        <h3 id="exp2-title">Accessibility Tutor</h3>
-                        <p>I trained two students in advanced Excel concepts from basic to advanced levels using the NVDA screen reader, focusing on accessible data manipulation and reporting techniques to increase their proficiency and employability.</p>
-                    </div>
-                </article>
+<section id="skills" class="content-section" aria-labelledby="skills-title">
+    <h2 class="section-title" id="skills-title">Key Technical Skills</h2>
+    <ul class="skills-list">
+        <li class="skill-item"> 
+            <div class="skill-circle" role="img" aria-label="Semantic HTML and CSS Remediation Skill">
+                <svg viewBox="0 0 100 100">
+                    <circle class="progress-ring-bg" cx="50" cy="50" r="45" />
+                    <circle class="progress-ring-fg" cx="50" cy="50" r="45" />
+                </svg>
             </div>
-        </section>
+            <span>HTML/CSS</span>
+        </li>
+        <li class="skill-item">
+            <div class="skill-circle" role="img" aria-label="ARIA Skill">
+                <svg viewBox="0 0 100 100">
+                    <circle class="progress-ring-bg" cx="50" cy="50" r="45" />
+                    <circle class="progress-ring-fg" cx="50" cy="50" r="45" />
+                </svg>
+            </div>
+            <span>ARIA</span>
+        </li>
+        <li class="skill-item">
+            <div class="skill-circle" role="img" aria-label="WCAG 2.2 Skill">
+                <svg viewBox="0 0 100 100">
+                    <circle class="progress-ring-bg" cx="50" cy="50" r="45" />
+                    <circle class="progress-ring-fg" cx="50" cy="50" r="45" />
+                </svg>
+            </div>
+            <span>WCAG 2.2</span>
+        </li>
+
+        <li class="skill-item">
+            <div class="skill-circle" role="img" aria-label="NVDA Screen Reader Skill">
+                <svg viewBox="0 0 100 100">
+                    <circle class="progress-ring-bg" cx="50" cy="50" r="45" />
+                    <circle class="progress-ring-fg" cx="50" cy="50" r="45" />
+                </svg>
+            </div>
+            <span>NVDA</span>
+        </li>
+        <li class="skill-item">
+            <div class="skill-circle" role="img" aria-label="TalkBack Screen Reader Skill">
+                <svg viewBox="0 0 100 100">
+                    <circle class="progress-ring-bg" cx="50" cy="50" r="45" />
+                    <circle class="progress-ring-fg" cx="50" cy="50" r="45" />
+                </svg>
+            </div>
+            <span>TalkBack</span>
+        </li>
+        
+        <li class="skill-item">
+            <div class="skill-circle" role="img" aria-label="Accessibility Auditing and Testing Skill">
+                <svg viewBox="0 0 100 100">
+                    <circle class="progress-ring-bg" cx="50" cy="50" r="45" />
+                    <circle class="progress-ring-fg" cx="50" cy="50" r="45" />
+                </svg>
+            </div>
+            <span>Auditing</span>
+        </li>
+    </ul>
+</section>       
+
+<section id="experience" class="content-section" aria-labelledby="experience-title">
+    <h2 class="section-title" id="experience-title">Accessibility Testing Experience</h2>
+    <div class="timeline">
+        <article class="timeline-item" aria-labelledby="exp1-title">
+            <div class="timeline-content">
+                <span class="timeline-date">Jan 2024 - Ongoing</span>
+                <h3 id="exp1-title">Accessibility Auditing and Remediation Practice</h3>
+                <p>
+                    I gained intensive hands-on experience by applying WCAG 2.2 principles (A, AA), ARIA, and Semantic HTML to audit live websites and mobile applications. This involved rigorous manual testing using NVDA and TalkBack to identify issues, report bugs clearly, and propose practical code fixes.
+                </p>
+            </div>
+        </article>
+        <article class="timeline-item" aria-labelledby="exp2-title">
+            <div class="timeline-content">
+                <span class="timeline-date">2020 - 2023</span>
+                <h3 id="exp2-title">Assistive Technology Tutor</h3>
+                <p>I provided one-on-one training to two students in advanced data manipulation and reporting using NVDA with Microsoft Excel, focusing on accessible techniques to increase their digital proficiency and employment readiness.</p>
+            </div>
+        </article>
+    </div>
+</section>
 
         <section id="education" class="content-section" aria-labelledby="education-title">
             <h2 class="section-title" id="education-title">Education</h2>
@@ -493,54 +496,45 @@
             </article>
         </section>
 
-        <section id="certifications" class="content-section" aria-labelledby="certifications-title">
-            <h2 class="section-title" id="certifications-title">Certifications</h2>
-            <ul class="certifications-list">
-                <li class="certification-card">
-                    <img src="https://placehold.co/200x200/334/FFF?text=Cert+Image" alt="Placeholder image for Digital Accessibility Training certificate." width="200" height="200" hidden>
-                    <h3>Digital Accessibility Training</h3>
-                    <p class="issuer">Vision Aid</p>
-                    <p class="details">
-                        Completed comprehensive training covering web accessibility testing, including WCAG 2.2 guidelines, ARIA implementation, and practical application of Semantic HTML.
-                    </p>
-                </li>
-                <li class="certification-card">
-                    <img src="https://placehold.co/200x200/334/FFF?text=Cert+Image" alt="Placeholder image for SEO Fundamental certificate." width="200" height="200" hidden>
-                    <h3>Search Engine Optimization (SEO) Fundamental</h3>
-                    <p class="issuer">Self-Paced / Online Coursework</p>
-                    <p class="details">
-                        Learned the core principles of SEO, including on-page, off-page, and technical strategies to improve website visibility and search engine ranking.
-                    </p>
-                </li>
-            </ul>
-        </section>
+<section id="certifications" class="content-section" aria-labelledby="certifications-title">
+    <h2 class="section-title" id="certifications-title">Certifications</h2>
+    <ul class="certifications-list">
+        <li class="certification-card">
+            <img src="https://placehold.co/200x200/334/FFF?text=Cert+Image" alt="Certificate for Digital Accessibility Training issued by Vision Aid and Saral X." width="200" height="200" hidden>
+            <h3>Digital Accessibility Training & Launchpad</h3>
+            <p class="issuer">Vision Aid (5 Months) & Saral X (45 Days)</p>
+            <p class="details">
+                Completed comprehensive, dual-program training covering web accessibility testing, including WCAG 2.2 guidelines, ARIA implementation, and practical application of Semantic HTML. Reinforced skills through extensive hands-on auditing practice.
+            </p>
+        </li>
+    </ul>
+</section>
 
-        <section id="projects" class="content-section" aria-labelledby="projects-title">
-            <h2 class="section-title" id="projects-title">Projects</h2>
-            <ul class="projects-list">
-                <li class="project-card">
-                    <img src="https://placehold.co/600x400/334/FFF?text=Project+Image" alt="Screenshot of a portfolio website with visible elements of SEO optimization." class="project-image" hidden>
-                    <div class="project-content">
-                        <h3>SEO-Optimized Portfolio Website</h3>
-                        <p>Developed a personal portfolio website using Semantic HTML & CSS, optimized for on-page and technical SEO. Implemented meta tags, Open Graph, Twitter Cards, Schema markup for rich results, `robots.txt`, `sitemap.xml`, custom 404 page, and Google Search Console setup.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/dilippariyar" target="_blank" rel="noopener noreferrer" aria-label="View SEO-Optimized Portfolio on GitHub"><i class="fab fa-github"></i> GitHub</a>
-                            <a href="#intro" aria-label="View Live Demo of SEO-Optimized Portfolio"><i class="fas fa-eye"></i> Live Demo</a>
-                        </div>
-                    </div>
-                </li>
-                <li class="project-card">
-                    <img src="https://placehold.co/600x400/334/FFF?text=Project+Image" alt="Screenshot of an accessible web page redesign." class="project-image" hidden>
-                    <div class="project-content">
-                        <h3>Accessible Web Page Redesign</h3>
-                        <p>Transformed an inaccessible web page into an accessible experience using Semantic HTML, ARIA attributes, and WCAG 2.2 guidelines. Focus on heading-based navigation and clear labels for enhanced usability.</p>
-                        <div class="project-links">
-                            <a href="https://dilippariyar.github.io/accessible_redesign.html" aria-label="View Details of the Accessible Web Page Redesign project"><i class="fas fa-file-alt"></i> View Details</a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </section>
+<section id="projects" class="content-section" aria-labelledby="projects-title">
+    <h2 class="section-title" id="projects-title">Projects</h2>
+    <ul class="projects-list">
+        <li class="project-card">
+            <img src="https://placehold.co/600x400/334/FFF?text=A11y+Quick+Check" alt="Screenshot of the A11y Quick Check bookmarklet tool interface." class="project-image" hidden>
+            <div class="project-content">
+                <h3>Custom Accessibility Testing Tool: A11y Quick Check</h3>
+                <p>Developed a browser bookmarklet using hidden code injection to allow for quick, initial scans of any live webpage. The tool is capable of injecting the testing results directly into the current page for screen reader users, and also allows viewing the results in a new tab for developers.</p>
+                <div class="project-links">
+                    <a href="[Insert Tool Link Here]" target="_blank" rel="noopener noreferrer" aria-label="View A11y Quick Check Tool Demonstration or Code"><i class="fas fa-file-code"></i> View Tool</a>
+                </div>
+            </div>
+        </li>
+        <li class="project-card">
+            <img src="https://placehold.co/600x400/334/FFF?text=Portfolio+Accessibility" alt="Screenshot of Dilip Pariyar's accessible portfolio website." class="project-image" hidden>
+            <div class="project-content">
+                <h3>Accessible Portfolio Website Implementation</h3>
+                <p>I built my portfolio from scratch focusing on meeting WCAG 2.2 AA standards. I implemented skip links, mapped logical tabbing order, and used correct ARIA roles/landmarks for a seamless screen reader experience.</p>
+                <div class="project-links">
+                    <a href="https://dilippariyar.github.io" target="_blank" rel="noopener noreferrer" aria-label="View Live Accessible Portfolio Demo"><i class="fas fa-eye"></i> Live Demo</a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</section>
 
         <section aria-label="Contact me directly">
             <div class="cta-section">
@@ -661,4 +655,5 @@
     </script>
 </body>
 </html>
+
 
